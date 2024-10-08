@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/08 15:26:04 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/08 12:36:36 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/08 13:52:51 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int main(void)
+char	*ft_strdup(const char *s)
 {
-	char	h[] = "Hello";
-	char	*w;
+	char	*duplicate;
+	int		i;
 
-
-	w = " World!!";
-	ft_strlcat(h, w, 9);
-	printf("%s\n", h);
+	duplicate = NULL;
+	duplicate = malloc(sizeof(char) * ft_strlen(s) + 1);
+	if (!duplicate)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		duplicate[i] = s[i];
+		i++;
+	}
+	duplicate[i] = '\0';
+	return (duplicate);
 }

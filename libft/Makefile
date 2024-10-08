@@ -6,7 +6,7 @@
 #    By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 09:51:22 by jopereir          #+#    #+#              #
-#    Updated: 2024/10/08 12:24:22 by jopereir         ###   ########.fr        #
+#    Updated: 2024/10/08 13:52:35 by jopereir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,14 @@ SRCS_FILES  = ft_isalnum.c \
              ft_isascii.c \
              ft_isdigit.c \
              ft_memset.c \
-			 ft_strlen.c 
+			 ft_strlen.c \
+			 ft_strchr.c \
+			 ft_strdup.c \
+			 ft_strlcat.c \
+			 ft_strlcopy.c \
+			 ft_strncmp.c \
+			 ft_strnstr.c \
+			 ft_strrchr.c
 OBJS_FILES  = $(SRCS_FILES:.c=.o)
 
 #compile -I. find for the header (.h) in current directory
