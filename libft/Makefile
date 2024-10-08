@@ -6,33 +6,43 @@
 #    By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 09:51:22 by jopereir          #+#    #+#              #
-#    Updated: 2024/10/07 13:57:46 by jopereir         ###   ########.fr        #
+#    Updated: 2024/10/08 12:24:22 by jopereir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 #Files
-SRCS_FILES  = $(wildcards *.c)
-OBJS_FILES  = $(SRCS_FILES: .c=.o)
-#compile
-CC 		= gcc
-CFLAGS 	= -Wall - Werror - Wextra
+SRCS_FILES  = ft_isalnum.c \
+             ft_isprint.c \
+             ft_isalpha.c \
+             ft_isascii.c \
+             ft_isdigit.c \
+             ft_memset.c \
+			 ft_strlen.c 
+OBJS_FILES  = $(SRCS_FILES:.c=.o)
+
+#compile -I. find for the header (.h) in current directory
+CC 		= cc
+CFLAGS 	= -Wall -Werror -Wextra -I.
+
 #Rules
 all: $(NAME)
 
-$(NAME): $(OBJS_FILES)
-	ar rc $(NAME) $(SRCS_FILES) 
-
 %.o: %.c
+	@echo "Compiling $<"
 	$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME): $(OBJS_FILES)
+	@echo "Creatind lib $(NAME)"
+	ar rc $(NAME) $(OBJS_FILES) 
 
 clean:
 	rm -f $(OBJS_FILES)
 
-fclean:
+fclean: clean
 	rm -f $(NAME)
 
-re:	all clean fclean
+re:	fclean all
 
 .PHONY: all clean fclean re
