@@ -6,7 +6,18 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:36:45 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/08 12:36:47 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/10 10:47:09 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n && s1[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
+}
