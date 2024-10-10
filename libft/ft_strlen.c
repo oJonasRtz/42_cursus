@@ -6,12 +6,17 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 10:32:21 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/05 10:53:31 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/10 11:11:04 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+	Takes the length of a string
+
+	doesn't include the NULL terminator
+*/
 int	ft_strlen(const char *s)
 {
 	int	i;

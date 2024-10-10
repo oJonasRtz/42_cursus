@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/10 10:45:24 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/10 11:44:35 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,10 @@ int main(void)
 {
 	char	*h;
 	char	*w;
-	int		i;
-	int		i2;
+	char	*i;
 
-	w = "Hello world!!";
-	h = "Hello Universe!!!";
-	i = ft_strncmp(h, w, 8);
-	i2 = strncmp(h, w, 8);
-	printf("Verificação: %d\nOriginal: %d\n", i, i2);
+	w = "";
+	h = "Hello world!!!";
+	i = ft_strnstr(h, w, ft_strlen(h));
+	printf("Verificação: %s\n", i);
 }

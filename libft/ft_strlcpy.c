@@ -6,12 +6,17 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:36:43 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/10 10:27:47 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/10 11:09:53 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+	Copy 'size' bytes from src to dst
+
+	returns the length of src
+*/
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;

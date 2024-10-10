@@ -6,12 +6,15 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 10:37:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/07 13:48:10 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/10 10:58:12 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+	This function fills the first 'n' bytes of the string *s with the char 'c'
+*/
 void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*pnt;

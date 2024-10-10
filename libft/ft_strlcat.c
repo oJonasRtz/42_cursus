@@ -6,12 +6,19 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:36:40 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/08 15:28:37 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/10 11:08:11 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+	This function concatenate 2 strings. The result is in 'dest'
+
+	it concatenate to 'size' bytes(include the dst bytes)
+
+	returns the sum of both lengths
+*/
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	dst_len;

@@ -6,12 +6,18 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:36:31 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/08 13:53:42 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/10 11:00:21 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+	This function returns a pointer to the fist occurence of the char 'c'
+	otherwise returns NULL
+
+	the last 'if' if for the '\0' terminator
+*/
 char	*ft_strchr(const char *s, int c)
 {
 	while (*s)
