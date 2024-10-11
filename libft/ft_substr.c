@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/11 12:08:55 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/11 12:55:36 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/11 13:11:42 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/11 13:33:01 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	Writes a number in the file
-*/
-void	ft_putnbr_fd(int n, int fd)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	if (n == -2147483648)
-		ft_putstr_fd("-2147483648", fd);
-	else
+	size_t		i;
+	char		*substr;
+
+	substr = malloc(sizeof(char) * (len + 1));
+	if (!substr)
+		return (NULL);
+	i = 0;
+	while (i < len)
 	{
-		if (n < 0)
-		{
-			ft_putchar_fd('-', fd);
-			n *= (-1);
-		}
-		if (n >= 10)
-			ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd(n % 10 + '0', fd);
+		substr[i] = s[start + i];
+		i++;
 	}
+	substr[i] = '\0';
+	return (substr);
 }
