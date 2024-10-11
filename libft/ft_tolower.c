@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/11 11:06:51 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/11 10:25:51 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/11 10:39:11 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	main(void)
+int	ft_tolower(int c)
 {
-	char	h[10];
-	char	w;
-
-	printf("Verificação antes: %s\n", h);
-	ft_bzero(h, 10);
-	printf("Verificação depois: %d\n", h);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
 }

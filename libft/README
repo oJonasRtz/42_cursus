@@ -1,7 +1,7 @@
 COMMAND TO COMPILE ANY PROGRAM WITH LIBFT
 
-gcc -Wall -Werror -Wextra -I. main.c -L. -lft -o my_program
+gcc -Wall -Werror -Wextra -I. main.c -L. -lft -o my_program -g
 
-
+Flag -g to use valgrind ./my_program
 
 Excluir README e main.c antes de subir no repositorio

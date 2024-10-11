@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 12:14:38 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/11 10:13:45 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/11 10:18:40 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@
 	literal variables can only be read
 		ex: h = "abcdefg";
 	it must be declared as the main bellow
+		or like this
+				char	h[10];
+				char	*w;
+
+				ft_strlcpy(h, "abcdefgh", 10);
+				w = h + 2;
+				ft_memmove(w, h, 9);
+				printf("Verificação: %s\n", w);
 
 	Main to test
 	

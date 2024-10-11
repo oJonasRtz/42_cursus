@@ -6,7 +6,7 @@
 #    By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 09:51:22 by jopereir          #+#    #+#              #
-#    Updated: 2024/10/11 09:50:15 by jopereir         ###   ########.fr        #
+#    Updated: 2024/10/11 10:25:41 by jopereir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,10 +30,15 @@ SRCS_FILES  = ft_isalnum.c \
 			 ft_memchr.c \
 			 ft_memcmp.c \
 			 ft_memcpy.c \
-			 ft_memmove.c
+			 ft_memmove.c \
+			 ft_calloc.c \
+			 ft_bzero.c \
+			 ft_atoi.c \
+			 ft_tolower.c \
+			 ft_toupper.c
 OBJS_FILES  = $(SRCS_FILES:.c=.o)
 
-#compile -I. find for the header (.h) in current directory
+#compile -I. find for the header (.h) in current directory. -g to use valgrind
 CC 		= cc
 CFLAGS 	= -Wall -Werror -Wextra -I. -g
 
