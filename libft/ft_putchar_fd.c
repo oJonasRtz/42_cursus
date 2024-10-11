@@ -6,12 +6,15 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 12:08:46 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/11 12:13:11 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/11 12:38:32 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+	Writes 1 char in the file
+*/
 void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
