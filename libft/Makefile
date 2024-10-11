@@ -6,7 +6,7 @@
 #    By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 09:51:22 by jopereir          #+#    #+#              #
-#    Updated: 2024/10/10 12:23:17 by jopereir         ###   ########.fr        #
+#    Updated: 2024/10/11 09:50:15 by jopereir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ OBJS_FILES  = $(SRCS_FILES:.c=.o)
 
 #compile -I. find for the header (.h) in current directory
 CC 		= cc
-CFLAGS 	= -Wall -Werror -Wextra -I.
+CFLAGS 	= -Wall -Werror -Wextra -I. -g
 
 #Rules
 all: $(NAME)
