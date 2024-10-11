@@ -6,14 +6,14 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 10:39:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/11 11:04:25 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/11 11:33:11 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	Alocates memory
+	set memory(doesn't allocate)
 	
 	It fills the 's' with '\0' terminators giving a memory slot
 
