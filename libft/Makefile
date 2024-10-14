@@ -6,7 +6,7 @@
 #    By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 09:51:22 by jopereir          #+#    #+#              #
-#    Updated: 2024/10/14 12:51:19 by jopereir         ###   ########.fr        #
+#    Updated: 2024/10/14 15:08:09 by jopereir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,10 +56,12 @@ CFLAGS 	= -Wall -Werror -Wextra -I. -g
 #Rules
 all: $(NAME)
 
+#The flag -c is for compile to .o without linking. -o is for the file names
 %.o: %.c
 	@echo "Compiling $<"
 	$(CC) $(CFLAGS) -c $< -o $@
 
+#flag r is for replace, c if for create
 $(NAME): $(OBJS_FILES)
 	@echo "Creatind lib $(NAME)"
 	ar rc $(NAME) $(OBJS_FILES) 

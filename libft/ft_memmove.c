@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 12:14:38 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/14 12:12:56 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/14 14:50:38 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	main(void)
 	char	h[] = "abcdefgh";
 	char	*w = h + 2;
 
+	h = "lalala"
 	ft_memmove(w, h, 9);
 	printf("Verificação: %s\n", w);
 }

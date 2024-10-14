@@ -6,12 +6,15 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 12:58:12 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/14 13:41:01 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/14 14:55:28 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+	Takes 
+*/
 char	*add_word(const char *str, int size)
 {
 	int		i;
@@ -76,7 +79,7 @@ char	**ft_split(char const *s, char c)
 	int		j;
 
 	word_cnt = word_count(s, c);
-	str = malloc(sizeof(char *) * word_cnt + 1);
+	str = malloc(sizeof(char *) * (word_cnt + 1));
 	if (!str)
 		return (NULL);
 	i = 0;
