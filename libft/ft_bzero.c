@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 10:39:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/11 11:33:11 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:29:56 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,7 @@
 /*
 	set memory(doesn't allocate)
 	
-	It fills the 's' with '\0' terminators giving a memory slot
-
-	Verification
-	while(i <= sizeof(a))
-		printf("%p\n", (void *)&a[i++]);
-	Result
-		0xfffffffff
-		0xfffffffff
-		0xfffffffff
+	It fills the 's' with '\0' terminators
 */
 void	ft_bzero(void *s, size_t n)
 {

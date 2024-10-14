@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/14 12:09:08 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:38:10 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(void)
 	char	*h;
 	char	*w;
 
-	h = "*-/llltestlll-/*";
-	w = ft_strtrim(h, "t");
+	h = "hello";
+	w = ft_strmapi(h, &ft_toupper);
 	printf("%s\n", w);
 }
