@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/14 10:20:32 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/14 10:32:51 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ int	main(void)
 {
 	char	*hw;
 	char	*h;
-	char	*w;
+	//char	*w;
 
-	h = "Hello";
-	w = " world";
-	hw = ft_strjoin(h, w);
+	h = "Hello world!!!";
+	hw = ft_strtrim(h, "!");
 	printf("Result: %s\n", hw);
 }
