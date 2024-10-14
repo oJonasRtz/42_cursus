@@ -6,14 +6,18 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 12:58:12 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/14 14:55:28 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/14 15:11:18 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	Takes 
+	Takes a string and a char and split in a string of strings
+
+	ex: ()"Hello world", ' ')
+	str[0] = "Hello"
+	str[1] = "World"
 */
 char	*add_word(const char *str, int size)
 {

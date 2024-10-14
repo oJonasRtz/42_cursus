@@ -6,12 +6,15 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 13:45:33 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/14 14:45:00 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/14 15:12:00 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+	Takes a int number and converts to a string
+*/
 int	num_count(int n)
 {
 	int	cnt;
