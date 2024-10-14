@@ -6,7 +6,7 @@
 #    By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 09:51:22 by jopereir          #+#    #+#              #
-#    Updated: 2024/10/11 13:13:02 by jopereir         ###   ########.fr        #
+#    Updated: 2024/10/14 12:51:19 by jopereir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,9 @@ SRCS_FILES  = ft_isalnum.c \
 			 ft_substr.c \
 			 ft_strtrim.c \
 			 ft_strmapi.c \
-			 ft_strjoin.c
+			 ft_strjoin.c \
+			 ft_split.c \
+			 ft_itoa.c
 OBJS_FILES  = $(SRCS_FILES:.c=.o)
 
 #compile -I. find for the header (.h) in current directory. -g to use valgrind

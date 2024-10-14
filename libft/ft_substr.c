@@ -6,12 +6,17 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 13:11:42 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/11 13:33:01 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/14 13:04:00 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+	Makes a substring
+
+	the substring starts at 'start' to 'len'
+*/
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t		i;
