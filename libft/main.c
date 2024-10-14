@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/11 13:34:17 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/14 10:20:32 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@
 int	main(void)
 {
 	char	*hw;
+	char	*h;
 	char	*w;
 
-	hw = "Hello world";
-	w = ft_substr(hw, 6, 5);
-	printf("Original: %s\nSubstr: %s\n", hw, w);
+	h = "Hello";
+	w = " world";
+	hw = ft_strjoin(h, w);
+	printf("Result: %s\n", hw);
 }
