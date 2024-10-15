@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:36:48 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/10 11:44:11 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/15 10:58:29 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	while (i + little_len <= len && big[i])
 	{
 		if (ft_strncmp(&big[i], little, little_len) == 0)
-		{
 			return ((char *)&big[i]);
-		}
 		i++;
 	}
 	return (NULL);
