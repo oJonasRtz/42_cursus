@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 12:58:12 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/14 15:11:18 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/15 10:23:38 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 	str[0] = "Hello"
 	str[1] = "World"
 */
-char	*add_word(const char *str, int size)
+static char	*add_word(char const *str, int size)
 {
 	int		i;
 	char	*_str;
@@ -37,12 +37,12 @@ char	*add_word(const char *str, int size)
 	return (_str);
 }
 
-int	is_char(const char chr, char c)
+static int	is_char(char const chr, char c)
 {
 	return (chr == c);
 }
 
-int	wordlen(const char *str, char c)
+static int	wordlen(char const*str, char c)
 {
 	int	i;
 
@@ -52,7 +52,7 @@ int	wordlen(const char *str, char c)
 	return (i);
 }
 
-int	word_count(const char *str, char c)
+static int	word_count(char const *str, char c)
 {
 	int	i;
 	int	cnt;

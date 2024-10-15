@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/14 15:38:52 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/15 10:25:15 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 
 int	main(void)
 {
-	int	*a;
+	char	**a;
 
-	a = malloc(sizeof(int) * 2);
-	a[0] = 10;
-	ft_bzero(a, 2);
-	printf("atoi: %d\nbzero: %d\n", ft_atoi("--++--++154sa548"), a[0]);
+	a = ft_split("Hello world", ' ');
+	printf("a[0]: %s\na[1]: %s\n", a[0], a[1]);
 	return (0);
 }
