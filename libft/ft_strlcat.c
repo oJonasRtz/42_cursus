@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:36:40 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/10 11:08:11 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/15 12:57:18 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	i = 0;
 	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
+	if (size <= dst_len)
+		return (src_len + size);
 	if (dst_len < size - 1 && size)
 	{
-		while (src[i] && (dst_len + i < size))
+		while (src[i] && (dst_len + i < size - 1))
 		{
 			dst[dst_len + i] = src[i];
 			i++;

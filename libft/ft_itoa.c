@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 13:45:33 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/14 15:49:56 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/15 09:50:57 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 	num_count counts the minus signal '-'
 */
-int	num_count(int n)
+static int	num_count(int n)
 {
 	int	cnt;
 
@@ -35,7 +35,7 @@ int	num_count(int n)
 	return (cnt);
 }
 
-void	convertion(int n, char *str, int nb_count)
+static void	convertion(int n, char *str, int nb_count)
 {
 	int	i;
 

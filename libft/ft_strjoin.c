@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 13:11:51 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/14 10:19:32 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/15 10:45:43 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		length;
 
 	length = ft_strlen(s1) + ft_strlen(s2) + 1;
+	str_return = NULL;
 	str_return = malloc(sizeof(char) * length);
 	if (!str_return)
 		return (NULL);

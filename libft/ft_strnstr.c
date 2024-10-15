@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:36:48 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/15 10:58:29 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/15 15:19:12 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	little_len;
 
-	if (!little)
+	if (*little == '\0')
 		return ((char *)big);
 	i = 0;
 	little_len = ft_strlen(little);
