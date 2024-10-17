@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/15 10:25:15 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/17 12:31:48 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 int	main(void)
 {
-	char	**a;
+	char	str[13];
 
-	a = ft_split("Hello world", ' ');
-	printf("a[0]: %s\na[1]: %s\n", a[0], a[1]);
+	ft_strlcpy(str, "-2146483648", 13);
+	printf("%s\n", str);
 	return (0);
 }

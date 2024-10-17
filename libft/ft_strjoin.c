@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 13:11:51 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/15 10:45:43 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/17 12:58:57 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	str_return = malloc(sizeof(char) * length);
 	if (!str_return)
 		return (NULL);
-	ft_strlcat(str_return, s1, ft_strlen(s1) + 1);
+	ft_strlcpy(str_return, s1, ft_strlen(s1) + 1);
 	ft_strlcat(str_return, s2, length);
 	return (str_return);
 }

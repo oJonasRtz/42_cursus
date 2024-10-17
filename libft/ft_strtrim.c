@@ -6,12 +6,11 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 13:11:45 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/14 15:27:41 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/17 10:57:35 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 /*
 	Makes a copy of s1 and return the string without set char

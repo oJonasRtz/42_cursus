@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 13:45:33 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/15 09:50:57 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/17 12:57:05 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ char	*ft_itoa(int n)
 		return (NULL);
 	str[nb_count] = '\0';
 	i = 0;
-	if (n == (-2147483648))
-		ft_strlcpy(str, "-2147483648", 12);
+	if (n == (-2147483648LL))
+		str = "-2147483648";
 	else
 	{
 		convertion(n, str, nb_count);
