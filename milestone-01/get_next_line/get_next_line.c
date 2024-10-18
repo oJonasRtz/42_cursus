@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:33:20 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/18 13:18:07 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/18 14:37:19 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,3 +79,5 @@ char	*get_next_line(int fd)
 	free(str);
 	return (last_line);
 }
+
+//a
