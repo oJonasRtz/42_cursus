@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:36:51 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/10 12:08:51 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/17 14:54:58 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strrchr(const char *s, int c)
 	i = ft_strlen(s) + 1;
 	while (i > 0)
 	{
-		if (s[i - 1] == c)
+		if (s[i - 1] == (char)c)
 			return ((char *)&s[i - 1]);
 		i--;
 	}
