@@ -26,3 +26,13 @@ int	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
+
+/*
+	strlen recursive
+*/
+int	ft_strrlen(const char *s)
+{
+	if (*s == '\0')
+		return (0);
+	return (1 + ft_strrlen(s + 1));
+}
