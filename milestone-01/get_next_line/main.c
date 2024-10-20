@@ -1,20 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/20 10:05:19 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/20 14:30:58 by jopereir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 #include <stdio.h>
 #include <fcntl.h>
 
-int	main(int argc, char *argv[])
+int	main(void)
 {
 	int		fd;
 	char	*str;
 
-	if (argc > 1)
-	{
-		fd = open(argv[1], O_RDONLY);
-		str = get_next_line(fd);
-		printf("%s", str);
-		close(fd);
-	}
-	else
-		printf("Type a file to open.\n");
+	fd = open("test.txt", O_RDONLY);
+	str = get_next_line(fd);
+	printf("%s", str);
+	str = get_next_line(fd);
+	printf("%s", str);
+	str = get_next_line(fd);
+	printf("%s", str);
+	str = get_next_line(fd);
+	printf("%s", str);
+	free(str);
+	close(fd);
 	return (0);
 }
