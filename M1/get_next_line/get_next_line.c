@@ -6,31 +6,25 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:33:20 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/21 11:13:39 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/21 12:33:17 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_free(char *str, char *str2)
+static char	*ft_free(char *str, char *str2)
 {
-	if (str)
-	{
-		free(str);
-		str = NULL;
-	}
-	if (str2)
-	{
-		free(str2);
-		str2 = NULL;
-	}
+	free(str);
+	free(str2);
+	str = NULL;
+	str2 = NULL;
 	return (NULL);
 }
 
 /*
 	takes a buffer and copy it to a temp string until \n
 */
-char	*get_line(char *buffer)
+static char	*get_line(char *buffer)
 {
 	char	*temp;
 	int		i;
@@ -57,13 +51,15 @@ char	*get_line(char *buffer)
 /*
 	Takes a buffer and a file descriptor and concatenate it until \n
 */
-char	*get_endl(int fd, char *buffer)
+static char	*get_endl(int fd, char *buffer)
 {
 	int		rd;
 	char	*temp;
 
 	if (!buffer)
 		buffer = ft_calloc(1, 1);
+	if (BUFFER_SIZE <= 0)
+		return (ft_free(buffer, NULL));
 	temp = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (!temp)
 		return (ft_free(buffer, NULL));
@@ -75,6 +71,8 @@ char	*get_endl(int fd, char *buffer)
 			return (ft_free(buffer, temp));
 		temp[rd] = 0;
 		buffer = ft_strjoin(buffer, temp);
+		if (!buffer)
+			return (ft_free(buffer, NULL));
 		if (ft_strchr(temp, '\n'))
 			break ;
 	}
@@ -85,7 +83,7 @@ char	*get_endl(int fd, char *buffer)
 /*
 	Erases the last readed line of the buffer
 */
-char	*get_buffer_update(char *buffer)
+static char	*get_buffer_update(char *buffer)
 {
 	int		i;
 	int		j;
@@ -97,7 +95,7 @@ char	*get_buffer_update(char *buffer)
 	if (!buffer[i])
 		return (ft_free(buffer, NULL));
 	temp = ft_calloc(ft_strlen(buffer) - i + 1, sizeof(char));
-	if (!temp)
+	if (!temp || !buffer)
 		return (ft_free(buffer, NULL));
 	i++;
 	j = 0;
@@ -121,8 +119,8 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (NULL);
 	buffer = get_endl(fd, buffer);
-	if (!buffer)
-		return (NULL);
+	if (!buffer || buffer[0] == '\0')
+		return (ft_free(buffer, NULL));
 	line = get_line(buffer);
 	buffer = get_buffer_update(buffer);
 	return (line);
