@@ -6,11 +6,20 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:33:20 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/20 14:34:55 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/21 10:58:42 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*ft_free(char *str, char *str2)
+{
+	if (str)
+		free(str);
+	if (str2)
+		free(str2);
+	return (NULL);
+}
 
 /*
 	takes a buffer and copy it to a temp string until \n
@@ -26,6 +35,8 @@ char	*get_line(char *buffer)
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
 	temp = ft_calloc(i + 2, sizeof(char));
+	if (!temp)
+		return (NULL);
 	i = 0;
 	while (buffer[i] != '\n' && buffer[i])
 	{
@@ -48,15 +59,14 @@ char	*get_endl(int fd, char *buffer)
 	if (!buffer)
 		buffer = ft_calloc(1, 1);
 	temp = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	if (!temp)
+		return (ft_free(buffer, NULL));
 	rd = 1;
 	while (rd > 0)
 	{
 		rd = read(fd, temp, BUFFER_SIZE);
 		if (rd < 0)
-		{
-			free(temp);
-			return (NULL);
-		}
+			return (ft_free(buffer, temp));
 		temp[rd] = 0;
 		buffer = ft_strjoin(buffer, temp);
 		if (ft_strchr(temp, '\n'))
@@ -79,19 +89,14 @@ char	*get_buffer_update(char *buffer)
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
 	if (!buffer)
-	{
-		free(buffer);
 		return (NULL);
-	}
 	temp = ft_calloc(ft_strlen(buffer) - i + 1, sizeof(char));
+	if (!temp)
+		return (ft_free(buffer, NULL));
 	i++;
 	j = 0;
 	while (buffer[i])
-	{
-		temp[j] = buffer[i];
-		j++;
-		i++;
-	}
+		temp[j++] = buffer[i++];
 	free(buffer);
 	return (temp);
 }

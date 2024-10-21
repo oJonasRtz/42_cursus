@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:33:35 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/20 13:08:33 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/21 10:37:57 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	j = 0;
 	while (s2[j])
-	{
-		str_return[i] = s2[j];
-		i++;
-		j++;
-	}
+		str_return[i++] = s2[j++];
 	str_return[i] = 0;
 	return (str_return);
 }
