@@ -6,13 +6,13 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:33:20 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/21 14:09:54 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/23 11:05:37 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*ft_free(char *str, char *str2)
+char	*ft_free(char *str, char *str2)
 {
 	free(str);
 	free(str2);
@@ -24,7 +24,7 @@ static char	*ft_free(char *str, char *str2)
 /*
 	takes a buffer and copy it to a temp string until \n
 */
-static char	*get_line(char *buffer)
+char	*get_line(char *buffer)
 {
 	char	*temp;
 	int		i;
@@ -51,7 +51,7 @@ static char	*get_line(char *buffer)
 /*
 	Takes a buffer and a file descriptor and concatenate it until \n
 */
-static char	*get_endl(int fd, char *buffer)
+char	*get_endl(int fd, char *buffer)
 {
 	int		rd;
 	char	*temp;
@@ -83,7 +83,7 @@ static char	*get_endl(int fd, char *buffer)
 /*
 	Erases the last readed line of the buffer
 */
-static char	*get_buffer_update(char *buffer)
+char	*get_buffer_update(char *buffer)
 {
 	int		i;
 	int		j;
