@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 11:30:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 13:44:29 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/11 12:08:52 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/11 12:39:44 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 /*
-	return - the number of char displayed at the terminal
+	Writes a string afollowed by a new line in a file
 */
-int	ft_printf(const char *str, ...)
+void	ft_putendl_fd(char *s, int fd)
 {
-	int	num_of_char;
-
-	return (num_of_char);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

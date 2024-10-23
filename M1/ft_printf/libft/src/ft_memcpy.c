@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 11:30:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 13:44:29 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/10 12:14:35 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/14 13:07:09 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 /*
-	return - the number of char displayed at the terminal
-*/
-int	ft_printf(const char *str, ...)
-{
-	int	num_of_char;
+	copy n bytes os src to dest
 
-	return (num_of_char);
+	it can be used by any type of variable
+*/
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+		i++;
+	}
+	return (dest);
 }

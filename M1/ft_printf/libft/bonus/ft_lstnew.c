@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 11:30:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 13:44:29 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/17 10:14:42 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/17 10:52:30 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 /*
-	return - the number of char displayed at the terminal
+	Creates a new list and add a content at the first node
 */
-int	ft_printf(const char *str, ...)
+t_list	*ft_lstnew(void *content)
 {
-	int	num_of_char;
+	t_list	*node;
 
-	return (num_of_char);
+	node = malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node -> content = content;
+	node -> next = NULL;
+	return (node);
 }

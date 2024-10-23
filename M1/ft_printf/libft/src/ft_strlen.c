@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 11:30:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 13:44:29 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/05 10:32:21 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/10 11:11:04 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 /*
-	return - the number of char displayed at the terminal
-*/
-int	ft_printf(const char *str, ...)
-{
-	int	num_of_char;
+	Takes the length of a string
 
-	return (num_of_char);
+	doesn't include the NULL terminator
+*/
+int	ft_strlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+/*
+	strlen recursive
+*/
+int	ft_strrlen(const char *s)
+{
+	if (*s == '\0')
+		return (0);
+	return (1 + ft_strrlen(s + 1));
 }

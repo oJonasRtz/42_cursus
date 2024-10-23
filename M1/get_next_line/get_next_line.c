@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:33:20 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 15:14:29 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/23 16:41:30 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ static char	*ft_free(char *str, char *str2)
 {
 	free(str);
 	free(str2);
-	str = NULL;
-	str2 = NULL;
 	return (NULL);
 }
 
@@ -36,7 +34,7 @@ static char	*get_line(char *buffer)
 		i++;
 	temp = ft_calloc(i + 2, sizeof(char));
 	if (!temp)
-		return (NULL);
+		return (ft_free(buffer, NULL));
 	i = 0;
 	while (buffer[i] != '\n' && buffer[i])
 	{
@@ -58,11 +56,7 @@ static char	*get_endl(int fd, char *buffer)
 
 	if (!buffer)
 		buffer = ft_calloc(1, 1);
-	if (BUFFER_SIZE <= 0)
-		return (ft_free(buffer, NULL));
 	temp = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	if (!temp)
-		return (ft_free(buffer, NULL));
 	rd = 1;
 	while (rd > 0)
 	{
@@ -71,8 +65,6 @@ static char	*get_endl(int fd, char *buffer)
 			return (ft_free(buffer, temp));
 		temp[rd] = 0;
 		buffer = ft_strcat(buffer, temp);
-		if (!buffer)
-			return (ft_free(buffer, temp));
 		if (ft_strchr(temp, '\n'))
 			break ;
 	}
@@ -102,6 +94,7 @@ static char	*get_buffer_update(char *buffer)
 	while (buffer[i])
 		temp[j++] = buffer[i++];
 	free(buffer);
+	buffer = NULL;
 	return (temp);
 }
 

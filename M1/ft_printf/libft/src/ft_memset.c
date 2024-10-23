@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 11:30:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 13:44:29 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/05 10:37:41 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/10 10:58:12 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 /*
-	return - the number of char displayed at the terminal
+	This function fills the first 'n' bytes of the string *s with the char 'c'
 */
-int	ft_printf(const char *str, ...)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	int	num_of_char;
+	unsigned char	*pnt;
 
-	return (num_of_char);
+	pnt = (unsigned char *)s;
+	while (n > 0)
+	{
+		pnt[n - 1] = c;
+		n--;
+	}
+	return (s);
 }

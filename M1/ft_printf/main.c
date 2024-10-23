@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:06:42 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 13:30:00 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/23 13:34:28 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,9 @@ void	ft_run_test(void)
 	int	i;
 
 	i = 1;
-	printf("teste %d: %s\n", i, ft_test_printf("aa", "aa"));
-	i++;
-	printf("teste %d: %s\n", i, ft_test_printf("aa", "ab"));
-	i++;
-	printf("teste %d: %s\n", i, ft_test_printf("aa", ""));
-	i++;
+	printf("teste %d: %s\n", i++, ft_test_printf("aa", "aa"));
+	printf("teste %d: %s\n", i++, ft_test_printf("aa", "ab"));
+	printf("teste %d: %s\n", i++, ft_test_printf("aa", ""));
 }
 
 int	main(void)

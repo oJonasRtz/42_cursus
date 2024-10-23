@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 11:30:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 13:44:29 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/11 13:11:42 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/15 15:02:12 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 /*
-	return - the number of char displayed at the terminal
-*/
-int	ft_printf(const char *str, ...)
-{
-	int	num_of_char;
+	Makes a substring
 
-	return (num_of_char);
+	the substring starts at 'start' to 'len'
+*/
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t		i;
+	size_t		j;
+	char		*substr;
+
+	substr = NULL;
+	substr = (char *)malloc(len + 1);
+	if (!substr)
+		return (NULL);
+	i = start;
+	j = 0;
+	while (i < (size_t)ft_strlen(s) && j < len)
+		substr[j++] = s[i++];
+	substr[j] = '\0';
+	return (substr);
 }

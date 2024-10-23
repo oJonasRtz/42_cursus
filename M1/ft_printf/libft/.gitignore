@@ -1,0 +1,13 @@
+#Objects
+*.o
+
+#Libs
+*.lib
+*.a
+
+#Executables
+*.out
+
+#Temp
+*.swp
+

@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 11:30:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 13:44:29 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/17 11:46:03 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/17 11:53:51 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
 /*
-	return - the number of char displayed at the terminal
+	delete and free a node and all the sucessors
 */
-int	ft_printf(const char *str, ...)
-{
-	int	num_of_char;
+#include "libft.h"
 
-	return (num_of_char);
+void	ft_lstclear(t_list **lst, void (*del)(void*))
+{
+	t_list	*current;
+	t_list	*next;
+
+	if (!lst || !del)
+		return ;
+	current = *lst;
+	while (current)
+	{
+		next = current -> next;
+		del(current -> content);
+		free(current);
+		current = next;
+	}
+	*lst = NULL;
 }

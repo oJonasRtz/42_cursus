@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 11:30:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 13:44:29 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/08 12:36:51 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/17 14:54:58 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 /*
-	return - the number of char displayed at the terminal
+	Returns the last occurence of 'c' in 's'
 */
-int	ft_printf(const char *str, ...)
+char	*ft_strrchr(const char *s, int c)
 {
-	int	num_of_char;
+	int	i;
 
-	return (num_of_char);
+	i = ft_strlen(s) + 1;
+	while (i > 0)
+	{
+		if (s[i - 1] == (char)c)
+			return ((char *)&s[i - 1]);
+		i--;
+	}
+	return (NULL);
 }

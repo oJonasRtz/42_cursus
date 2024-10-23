@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 11:30:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 13:44:29 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/17 11:55:44 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/17 12:00:19 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 /*
-	return - the number of char displayed at the terminal
+	Aplly function f at each node os the list
 */
-int	ft_printf(const char *str, ...)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	int	num_of_char;
+	t_list	*current;
+	t_list	*next;
 
-	return (num_of_char);
+	if (!lst || !f)
+		return ;
+	current = lst;
+	while (current)
+	{
+		next = current -> next;
+		f(current -> content);
+		current = next;
+	}
 }

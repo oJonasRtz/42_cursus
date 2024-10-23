@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 11:30:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 13:44:29 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/11 10:39:41 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/14 12:29:56 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 /*
-	return - the number of char displayed at the terminal
+	set memory(doesn't allocate)
+	
+	It fills the 's' with '\0' terminators
 */
-int	ft_printf(const char *str, ...)
+void	ft_bzero(void *s, size_t n)
 {
-	int	num_of_char;
+	size_t	i;
 
-	return (num_of_char);
+	i = 0;
+	while (i < n)
+		((unsigned char *)s)[i++] = '\0';
 }

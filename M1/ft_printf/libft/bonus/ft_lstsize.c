@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 11:30:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 13:44:29 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/17 10:54:24 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/17 11:23:05 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 /*
-	return - the number of char displayed at the terminal
+	return the amout of nodes in a list
 */
-int	ft_printf(const char *str, ...)
+int	ft_lstsize(t_list *lst)
 {
-	int	num_of_char;
+	int	cnt;
 
-	return (num_of_char);
+	cnt = 0;
+	while (lst)
+	{
+		cnt++;
+		lst = lst -> next;
+	}
+	return (cnt);
 }

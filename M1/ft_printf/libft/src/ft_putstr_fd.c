@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 11:30:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 13:44:29 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/11 12:08:58 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/11 12:39:34 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 /*
-	return - the number of char displayed at the terminal
+	Writes a string in a file
 */
-int	ft_printf(const char *str, ...)
+void	ft_putstr_fd(char *s, int fd)
 {
-	int	num_of_char;
+	int	i;
 
-	return (num_of_char);
+	i = 0;
+	while (s[i])
+		ft_putchar_fd(s[i++], fd);
 }
