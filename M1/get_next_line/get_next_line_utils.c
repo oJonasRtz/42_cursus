@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:33:35 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 12:25:50 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/23 14:30:32 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ char	*ft_strcat(char *buffer, char *buffer2)
 {
 	char	*temp;
 
+	if (!buffer || !buffer2)
+		return (NULL);
 	temp = ft_strjoin(buffer, buffer2);
 	free(buffer);
 	return (temp);

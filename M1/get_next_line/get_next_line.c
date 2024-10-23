@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:33:20 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 12:25:38 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/23 15:14:29 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,9 @@ static char	*get_buffer_update(char *buffer)
 		i++;
 	if (!buffer[i])
 		return (ft_free(buffer, NULL));
-	temp = ft_calloc(ft_strlen(buffer) - i, sizeof(char));
+	temp = ft_calloc(ft_strlen(buffer) - i + 1, sizeof(char));
+	if (!temp)
+		return (ft_free(buffer, NULL));
 	i++;
 	j = 0;
 	while (buffer[i])
@@ -121,7 +123,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line = get_line(buffer);
 	if (!line)
-		return (ft_free(NULL, line));
+		return (ft_free(buffer, line));
 	buffer = get_buffer_update(buffer);
 	return (line);
 }
