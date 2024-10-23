@@ -6,13 +6,13 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:33:20 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 11:05:37 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/23 12:25:38 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_free(char *str, char *str2)
+static char	*ft_free(char *str, char *str2)
 {
 	free(str);
 	free(str2);
@@ -24,7 +24,7 @@ char	*ft_free(char *str, char *str2)
 /*
 	takes a buffer and copy it to a temp string until \n
 */
-char	*get_line(char *buffer)
+static char	*get_line(char *buffer)
 {
 	char	*temp;
 	int		i;
@@ -51,7 +51,7 @@ char	*get_line(char *buffer)
 /*
 	Takes a buffer and a file descriptor and concatenate it until \n
 */
-char	*get_endl(int fd, char *buffer)
+static char	*get_endl(int fd, char *buffer)
 {
 	int		rd;
 	char	*temp;
@@ -70,9 +70,9 @@ char	*get_endl(int fd, char *buffer)
 		if (rd < 0)
 			return (ft_free(buffer, temp));
 		temp[rd] = 0;
-		buffer = ft_strjoin(buffer, temp);
+		buffer = ft_strcat(buffer, temp);
 		if (!buffer)
-			return (ft_free(buffer, NULL));
+			return (ft_free(buffer, temp));
 		if (ft_strchr(temp, '\n'))
 			break ;
 	}
@@ -83,7 +83,7 @@ char	*get_endl(int fd, char *buffer)
 /*
 	Erases the last readed line of the buffer
 */
-char	*get_buffer_update(char *buffer)
+static char	*get_buffer_update(char *buffer)
 {
 	int		i;
 	int		j;
@@ -94,9 +94,7 @@ char	*get_buffer_update(char *buffer)
 		i++;
 	if (!buffer[i])
 		return (ft_free(buffer, NULL));
-	temp = ft_calloc(ft_strlen(buffer) - i + 1, sizeof(char));
-	if (!temp || !buffer)
-		return (ft_free(buffer, NULL));
+	temp = ft_calloc(ft_strlen(buffer) - i, sizeof(char));
 	i++;
 	j = 0;
 	while (buffer[i])
@@ -120,8 +118,10 @@ char	*get_next_line(int fd)
 		return (NULL);
 	buffer = get_endl(fd, buffer);
 	if (!buffer || buffer[0] == '\0')
-		return (ft_free(buffer, NULL));
+		return (NULL);
 	line = get_line(buffer);
+	if (!line)
+		return (ft_free(NULL, line));
 	buffer = get_buffer_update(buffer);
 	return (line);
 }

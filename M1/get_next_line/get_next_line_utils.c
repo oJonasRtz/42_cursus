@@ -6,31 +6,34 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:33:35 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 11:05:57 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/23 12:25:50 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_strcat(char *buffer, char *buffer2)
 {
-	size_t	i;
+	char	*temp;
 
-	i = 0;
-	while (i < n)
-		((unsigned char *)s)[i++] = '\0';
+	temp = ft_strjoin(buffer, buffer2);
+	free(buffer);
+	return (temp);
 }
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	size_t	_size;
+	size_t	i;
 	void	*pnt;
 
 	_size = size * nmemb;
 	pnt = malloc(_size);
 	if (!pnt)
 		return (NULL);
-	ft_bzero(pnt, _size);
+	i = 0;
+	while (i < _size)
+		((unsigned char *)pnt)[i++] = '\0';
 	return (pnt);
 }
 
@@ -66,7 +69,7 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	length = ft_strlen(s1) + ft_strlen(s2) + 1;
 	str_return = NULL;
-	str_return = malloc(sizeof(char) * length);
+	str_return = ft_calloc(length, sizeof(char));
 	if (!str_return)
 		return (NULL);
 	i = 0;
@@ -79,6 +82,5 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s2[j])
 		str_return[i++] = s2[j++];
 	str_return[i] = 0;
-	free(s1);
 	return (str_return);
 }
