@@ -6,11 +6,11 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:06:42 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 13:23:15 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/23 13:30:00 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "ft_printf.h"
+#include "ft_printf.h"
 #include <stdio.h>
 
 int	ft_strrlen(const char *s)
@@ -41,24 +41,21 @@ char	*ft_test_printf(char *origin, char *mine)
 	return ("Fail.");
 }
 
+void	ft_run_test(void)
+{
+	int	i;
+
+	i = 1;
+	printf("teste %d: %s\n", i, ft_test_printf("aa", "aa"));
+	i++;
+	printf("teste %d: %s\n", i, ft_test_printf("aa", "ab"));
+	i++;
+	printf("teste %d: %s\n", i, ft_test_printf("aa", ""));
+	i++;
+}
+
 int	main(void)
 {
-	char	a[2];
-	char	b[2];
-	char	c[2];
-	int		i;
-
-	i = 0;
-	while (i < 2)
-	{
-		a[i] = 'a';
-		b[i] = 'a';
-		c[i] = 'b';
-		i++;
-	}
-	a[i] = 0;
-	b[i] = 0;
-	c[i] = 0;
-	printf("teste: %s %s\n", ft_test_printf(a, b), ft_test_printf(a, c));
+	ft_run_test();
 	return (0);
 }
