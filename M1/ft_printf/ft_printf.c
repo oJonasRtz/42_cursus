@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 11:30:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/24 16:15:07 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/24 16:30:02 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ int	get_format(char c, va_list args)
 		length = ft_get_unsigned(va_arg(args, unsigned int));
 	else if (c == '%')
 		length = ft_get_percentage();
+	else if (c == 'c')
+		length = ft_get_char(va_arg(args, int));
+	else if (c == 's')
+		length = ft_get_string(va_arg(args, char *));
 	return (length);
 }
 
