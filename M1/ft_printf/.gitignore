@@ -1,0 +1,9 @@
+#Objects
+*.o
+
+#executables
+my_program
+*.out
+
+#libs
+*.a

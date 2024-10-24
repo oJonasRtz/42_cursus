@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 11:30:52 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/24 16:17:56 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/17 10:14:42 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/17 10:52:30 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include "libft.h"
+/*
+	Creates a new list and add a content at the first node
+*/
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*node;
 
-int	ft_printf(const char *str, ...);
-int	ft_get_unsigned(unsigned int n);
-int	ft_num_count(int n);
-int	ft_get_int(int n);
-int	ft_get_percentage(void);
-
-#endif
+	node = malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node -> content = content;
+	node -> next = NULL;
+	return (node);
+}

@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 11:30:52 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/24 16:17:56 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/15 16:19:55 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/17 12:47:04 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+/*
+	add a note in the last position of a list
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include "libft.h"
+	if node is empty add new as the first node
+*/
+#include "libft.h"
 
-int	ft_printf(const char *str, ...);
-int	ft_get_unsigned(unsigned int n);
-int	ft_num_count(int n);
-int	ft_get_int(int n);
-int	ft_get_percentage(void);
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*last_pos;
 
-#endif
+	if (!lst || !new)
+		return ;
+	if (!(*lst))
+		*lst = new;
+	else
+	{
+		last_pos = ft_lstlast(*lst);
+		last_pos -> next = new;
+	}
+}

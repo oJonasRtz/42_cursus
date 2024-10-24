@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 11:30:52 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/24 16:17:56 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/24 16:16:59 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/24 16:17:15 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "./include/ft_printf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include "libft.h"
-
-int	ft_printf(const char *str, ...);
-int	ft_get_unsigned(unsigned int n);
-int	ft_num_count(int n);
-int	ft_get_int(int n);
-int	ft_get_percentage(void);
-
-#endif
+int	ft_get_percentage(void)
+{
+	ft_putchar_fd('%', 1);
+	return (1);
+}

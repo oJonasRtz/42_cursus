@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 11:30:52 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/24 16:17:56 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/24 14:24:24 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/24 14:47:02 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "./include/ft_printf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include "libft.h"
+/*
+	counts the amount of numbers of a int
+*/
+int	ft_num_count(int n)
+{
+	int	cnt;
 
-int	ft_printf(const char *str, ...);
-int	ft_get_unsigned(unsigned int n);
-int	ft_num_count(int n);
-int	ft_get_int(int n);
-int	ft_get_percentage(void);
-
-#endif
+	cnt = 1;
+	if (n == 0)
+		return (cnt);
+	if (n < 0)
+		n = -n;
+	if (n >= 10)
+		cnt += ft_num_count(n / 10);
+	return (cnt);
+}

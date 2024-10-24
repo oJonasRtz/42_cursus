@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 11:30:52 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/24 16:17:56 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/17 10:54:24 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/17 11:23:05 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include "libft.h"
+/*
+	return the amout of nodes in a list
+*/
+int	ft_lstsize(t_list *lst)
+{
+	int	cnt;
 
-int	ft_printf(const char *str, ...);
-int	ft_get_unsigned(unsigned int n);
-int	ft_num_count(int n);
-int	ft_get_int(int n);
-int	ft_get_percentage(void);
-
-#endif
+	cnt = 0;
+	while (lst)
+	{
+		cnt++;
+		lst = lst -> next;
+	}
+	return (cnt);
+}

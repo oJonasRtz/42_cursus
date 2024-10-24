@@ -6,53 +6,35 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:06:42 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 13:34:28 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/24 16:19:34 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "./include/ft_printf.h"
 #include <stdio.h>
 
-int	ft_strrlen(const char *s)
+void	ft_test(void)
 {
-	if (*s == '\0')
-		return (0);
-	return (1 + ft_strrlen(s + 1));
-}
+	int	mine;
+	int	original;
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-	size_t	i;
+	printf("Original\n");
+	original = printf("Hello: %d teste %d\n", -10, 50);	////decinal
+	ft_printf("%i\n", ft_num_count(25));	////int
+	printf("%u\n", -5);						///unsigned
+	printf("5%% .05%%\n");
+	printf("return: %d\n\n", original);		////return
 
-	i = 0;
-	while (i < n && s1[i] && s2[i] && s1[i] == s2[i])
-		i++;
-	if (i == n)
-		return (0);
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
-
-char	*ft_test_printf(char *origin, char *mine)
-{
-	if (!origin || !mine)
-		return ("Fail - empty string.");
-	if (!ft_strncmp(origin, mine, ft_strrlen(origin)))
-		return ("OK.");
-	return ("Fail.");
-}
-
-void	ft_run_test(void)
-{
-	int	i;
-
-	i = 1;
-	printf("teste %d: %s\n", i++, ft_test_printf("aa", "aa"));
-	printf("teste %d: %s\n", i++, ft_test_printf("aa", "ab"));
-	printf("teste %d: %s\n", i++, ft_test_printf("aa", ""));
+	ft_printf("Mine\n");
+	mine = ft_printf("Hello: %d teste %d\n", -10, 50);
+	ft_printf("%i\n", ft_num_count(25));
+	printf("%u\n", -5);
+	ft_printf("5%% .05%%\n");
+	ft_printf("return: %d\n\n", mine);
 }
 
 int	main(void)
 {
-	ft_run_test();
+	ft_test();
 	return (0);
 }
