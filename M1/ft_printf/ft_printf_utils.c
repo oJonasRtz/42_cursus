@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 14:24:24 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/24 14:47:02 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/26 13:56:29 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	ft_num_count(int n)
 	cnt = 1;
 	if (n == 0)
 		return (cnt);
+	if (n == (-2147483648))
+		return (10);
 	if (n < 0)
 		n = -n;
 	if (n >= 10)

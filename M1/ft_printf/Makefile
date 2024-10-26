@@ -6,13 +6,14 @@
 #    By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/18 11:11:14 by jopereir          #+#    #+#              #
-#    Updated: 2024/10/26 13:02:22 by jopereir         ###   ########.fr        #
+#    Updated: 2024/10/26 13:09:45 by jopereir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRC = $(wildcard *.c)
+SRC = ft_printf.c ft_printf_utils.c ft_printf_char.c \
+		ft_printf_hex.c ft_printf_int.c
 OBJ = $(SRC:.c=.o)
 HEADER = include
 LIBFT = libft

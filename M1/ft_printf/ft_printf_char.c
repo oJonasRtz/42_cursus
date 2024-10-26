@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 16:16:59 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/24 16:29:10 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/26 13:50:27 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ int	ft_get_char(char c)
 
 int	ft_get_string(char *str)
 {
+	if (str == (char *) NULL)
+	{
+		ft_putstr_fd("(null)", 1);
+		return (6);
+	}
 	ft_putstr_fd(str, 1);
 	return (ft_strlen(str));
 }

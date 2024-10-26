@@ -6,11 +6,26 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 14:46:46 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/26 12:54:53 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/26 16:05:39 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include/ft_printf.h"
+
+int	ft_num_count_unsigned(unsigned int n)
+{
+	int	cnt;
+
+	cnt = 0;
+	if (n == 0)
+		return (1);
+	while (n > 0)
+	{
+		n /= 10;
+		cnt++;
+	}
+	return (cnt);
+}
 
 /*
 	Displays a unsigned int
@@ -32,7 +47,7 @@ int	ft_get_unsigned(unsigned int n)
 {
 	int	len;
 
-	len = ft_num_count(n);
+	len = ft_num_count_unsigned(n);
 	ft_putnbr_unsigned_fd(n, 1);
 	return (len);
 }
@@ -47,6 +62,6 @@ int	ft_get_int(int n)
 	num_cunt = ft_num_count(n);
 	if (n < 0)
 		num_cunt++;
-	ft_putnbr_fd((unsigned int)n, 1);
+	ft_putnbr_fd(n, 1);
 	return (num_cunt);
 }

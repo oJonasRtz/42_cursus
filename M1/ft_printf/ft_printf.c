@@ -6,19 +6,18 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 11:30:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/26 12:59:28 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/26 16:04:03 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include/ft_printf.h"
 
 /*
-	returns the format of the arg
+	Shows the fomat specified and return the amout of characters showed
 */
 int	get_format(char c, va_list args)
 {
 	int				length;
-	unsigned long	pnt;
 
 	length = 0;
 	if (c == 'd' || c == 'i')
@@ -32,14 +31,11 @@ int	get_format(char c, va_list args)
 	else if (c == 's')
 		length = ft_get_string(va_arg(args, char *));
 	else if (c == 'x')
-		length = ft_itoa_base(va_arg(args, unsigned long), "0123456789abcdef");
+		length = ft_itoa_base(va_arg(args, unsigned int), "0123456789abcdef");
 	else if (c == 'X')
-		length = ft_itoa_base(va_arg(args, unsigned long), "0123456789ABCDEF");
+		length = ft_itoa_base(va_arg(args, unsigned int), "0123456789ABCDEF");
 	else if (c == 'p')
-	{
-		pnt = (unsigned long)va_arg(args, void *);
-		length = get_pointer((void *)pnt);
-	}
+		length = get_pointer((void *)va_arg(args, void *));
 	return (length);
 }
 
