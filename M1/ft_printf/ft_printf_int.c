@@ -6,21 +6,40 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 14:46:46 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/26 11:00:34 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/26 12:54:53 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include/ft_printf.h"
 
 /*
+	Displays a unsigned int
+*/
+void	ft_putnbr_unsigned_fd(unsigned int n, int fd)
+{
+	char	c;
+
+	if (n >= 10)
+		ft_putnbr_unsigned_fd(n / 10, fd);
+	c = '0' + (n % 10);
+	write(fd, &c, 1);
+}
+
+/*
 	displays a unsigned int
 */
 int	ft_get_unsigned(unsigned int n)
 {
-	ft_putnbr_fd((unsigned int)n, 1);
-	return (ft_num_count(n));
+	int	len;
+
+	len = ft_num_count(n);
+	ft_putnbr_unsigned_fd(n, 1);
+	return (len);
 }
 
+/*
+	Displays a int number
+*/
 int	ft_get_int(int n)
 {
 	int	num_cunt;

@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 16:34:18 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/26 10:55:17 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/26 12:58:28 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_num_count_base(unsigned int n, int base_len)
 /*
 	Takes a int and converts to a base
 */
-int	ft_itoa_base(unsigned int value, char *base)
+int	ft_itoa_base(unsigned long value, char *base)
 {
 	int		base_len;
 	int		len;
@@ -56,5 +56,16 @@ int	ft_itoa_base(unsigned int value, char *base)
 	}
 	ft_putstr_fd(temp, 1);
 	free(temp);
-	return (ft_strlen(temp));
+	return (base_len);
+}
+
+int	get_pointer(void *p)
+{
+	int				len;
+	unsigned long	pnt;
+
+	pnt = (unsigned long)p;
+	ft_putstr_fd("0x", 1);
+	len = ft_itoa_base((unsigned long)pnt, "0123456789abcdef");
+	return (len);
 }

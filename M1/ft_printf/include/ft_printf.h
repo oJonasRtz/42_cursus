@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 11:30:52 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/26 10:56:31 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/26 12:46:25 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	ft_get_int(int n);
 int	ft_get_percentage(void);
 int	ft_get_char(char c);
 int	ft_get_string(char *str);
-int	ft_itoa_base(unsigned int value, char *base);
+int	ft_itoa_base(unsigned long value, char *base);
+int	get_pointer(void *p);
 
 #endif

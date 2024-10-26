@@ -6,7 +6,7 @@
 #    By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/18 11:11:14 by jopereir          #+#    #+#              #
-#    Updated: 2024/10/24 14:28:44 by jopereir         ###   ########.fr        #
+#    Updated: 2024/10/26 13:02:22 by jopereir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,9 +36,11 @@ $(NAME): $(OBJ)
 
 clean:
 	rm -f $(OBJ)
+	@make -C $(LIBFT) clean
 
 fclean: clean
 	rm -f $(NAME)
+	@make -C $(LIBFT) fclean
 
 re: fclean all
 

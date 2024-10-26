@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 11:30:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/26 10:57:54 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/26 12:59:28 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 */
 int	get_format(char c, va_list args)
 {
-	int		length;
+	int				length;
+	unsigned long	pnt;
 
 	length = 0;
 	if (c == 'd' || c == 'i')
@@ -31,9 +32,14 @@ int	get_format(char c, va_list args)
 	else if (c == 's')
 		length = ft_get_string(va_arg(args, char *));
 	else if (c == 'x')
-		length = ft_itoa_base(va_arg(args, unsigned int), "0123456789abcdef");
+		length = ft_itoa_base(va_arg(args, unsigned long), "0123456789abcdef");
 	else if (c == 'X')
-		length = ft_itoa_base(va_arg(args, unsigned int), "0123456789ABCDEF");
+		length = ft_itoa_base(va_arg(args, unsigned long), "0123456789ABCDEF");
+	else if (c == 'p')
+	{
+		pnt = (unsigned long)va_arg(args, void *);
+		length = get_pointer((void *)pnt);
+	}
 	return (length);
 }
 
@@ -69,3 +75,52 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (num_char_displayed);
 }
+
+/*
+#include "./include/ft_printf.h"
+#include <stdio.h>
+
+void	ft_test(void)
+{
+	int		mine;
+	int		original;
+	char	*s;
+	char	*str;
+
+	s = "Hello world";
+	str = " Hi ";
+	printf("\nOriginal\n");
+	original = printf("Decimal: %d teste %d\n", -10, 50);
+	printf("int: %i\n", ft_num_count(25));
+	printf("unsigned: %u\n", -5);
+	printf("Percentage: 5%% .05%%\n");
+	printf("char: %c\n", 'c');
+	printf("String: %s\n", "teste");
+	printf("Hex_low: %x\n", 1015);
+	printf("Hex_up %X\n", 1015);
+	printf("Hex negativo: %x\n", -10);
+	printf("Ponteiro: %p\n", (void *)s);
+	printf("Ponteiro: %p\n", (void *)str);
+	printf("return: %d\n\n", original);
+	
+	ft_printf("Mine\n");
+	mine = ft_printf("Decimal: %d teste %d\n", -10, 50);
+	ft_printf("int: %i\n", ft_num_count(25));
+	ft_printf("unsigned: %u\n", -5);
+	ft_printf("Percentage: 5%% .05%%\n");
+	ft_printf("char: %c\n", 'c');
+	ft_printf("String: %s\n", "teste");
+	ft_printf("Hex_low: %x\n", 1015);
+	ft_printf("Hex_up %X\n", 1015);
+	ft_printf("Hex negativo: %x\n", -10);
+	ft_printf("Ponteiro: %p\n", (void *)s);
+	ft_printf("Ponteiro: %p\n", (void *)str);
+	ft_printf("return: %d\n\n", mine);
+}
+
+int	main(void)
+{
+	ft_test();
+	return (0);
+}
+*/
