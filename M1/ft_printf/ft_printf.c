@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 11:30:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/24 16:30:02 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/26 10:57:54 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 */
 int	get_format(char c, va_list args)
 {
-	int	length;
+	int		length;
 
 	length = 0;
 	if (c == 'd' || c == 'i')
@@ -30,6 +30,10 @@ int	get_format(char c, va_list args)
 		length = ft_get_char(va_arg(args, int));
 	else if (c == 's')
 		length = ft_get_string(va_arg(args, char *));
+	else if (c == 'x')
+		length = ft_itoa_base(va_arg(args, unsigned int), "0123456789abcdef");
+	else if (c == 'X')
+		length = ft_itoa_base(va_arg(args, unsigned int), "0123456789ABCDEF");
 	return (length);
 }
 

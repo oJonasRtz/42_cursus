@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 14:46:46 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/24 16:16:58 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/26 11:00:34 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 */
 int	ft_get_unsigned(unsigned int n)
 {
-	ft_putnbr_fd(n, 1);
+	ft_putnbr_fd((unsigned int)n, 1);
 	return (ft_num_count(n));
 }
 
