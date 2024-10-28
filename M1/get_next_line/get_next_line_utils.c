@@ -6,22 +6,11 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:33:35 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 16:33:45 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/28 13:25:51 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-char	*ft_strcat(char *buffer, char *buffer2)
-{
-	char	*temp;
-
-	if (!buffer || !buffer2)
-		return (NULL);
-	temp = ft_strjoin(buffer, buffer2);
-	free(buffer);
-	return (temp);
-}
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {

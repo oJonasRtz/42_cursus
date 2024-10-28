@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:33:20 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/28 10:22:50 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/28 14:54:17 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ static char	*get_endl(int fd, char *buffer)
 {
 	int		rd;
 	char	*temp;
+	char	*new_buffer;
 
 	if (!buffer)
 		buffer = ft_calloc(1, 1);
@@ -61,14 +62,18 @@ static char	*get_endl(int fd, char *buffer)
 	while (rd > 0)
 	{
 		rd = read(fd, temp, BUFFER_SIZE);
-		if (rd < 0)
+		if (rd == (-1))
 			return (ft_free(buffer, temp));
 		temp[rd] = 0;
-		buffer = ft_strcat(buffer, temp);
+		new_buffer = ft_strjoin(buffer, temp);
+		free(buffer);
+		buffer = new_buffer;
 		if (ft_strchr(temp, '\n'))
 			break ;
 	}
 	free(temp);
+	if (rd == 0 && (!buffer || buffer[0] == '\0'))
+		return (ft_free(buffer, NULL));
 	return (buffer);
 }
 
@@ -94,7 +99,6 @@ static char	*get_buffer_update(char *buffer)
 	while (buffer[i])
 		temp[j++] = buffer[i++];
 	free(buffer);
-	buffer = NULL;
 	return (temp);
 }
 
@@ -109,14 +113,14 @@ char	*get_next_line(int fd)
 	static char	*buffer;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd == (-1) || BUFFER_SIZE <= 0)
 		return (NULL);
 	buffer = get_endl(fd, buffer);
+	if (!buffer || buffer[0] == '\0')
+		return (NULL);
 	line = get_line(buffer);
 	if (!line || line[0] == '\0')
 		return (ft_free(buffer, line));
 	buffer = get_buffer_update(buffer);
-	if (!buffer || buffer[0] == '\0')
-		return (NULL);
 	return (line);
 }

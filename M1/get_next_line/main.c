@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 10:05:19 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 14:45:26 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/28 13:01:15 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ int	main(void)
 	free(str);
 	str = NULL;
 		str = get_next_line(fd);
+	printf("%s", str);
+	free(str);
+	str = get_next_line(fd);
 	printf("%s", str);
 	free(str);
 	str = NULL;
