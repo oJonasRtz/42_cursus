@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:33:20 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/23 16:41:30 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/28 10:22:50 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,11 +112,11 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (NULL);
 	buffer = get_endl(fd, buffer);
-	if (!buffer || buffer[0] == '\0')
-		return (NULL);
 	line = get_line(buffer);
-	if (!line)
+	if (!line || line[0] == '\0')
 		return (ft_free(buffer, line));
 	buffer = get_buffer_update(buffer);
+	if (!buffer || buffer[0] == '\0')
+		return (NULL);
 	return (line);
 }

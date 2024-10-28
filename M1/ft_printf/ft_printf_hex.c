@@ -6,13 +6,13 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 16:34:18 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/26 15:47:23 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/28 10:17:27 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include/ft_printf.h"
 
-int	ft_num_count_base(unsigned int n, int base_len)
+int	ft_num_count_base(unsigned long n, unsigned long base_len)
 {
 	int	cnt;
 
@@ -32,22 +32,24 @@ int	ft_num_count_base(unsigned int n, int base_len)
 */
 int	ft_itoa_base(unsigned long value, char *base)
 {
-	int		len;
-	char	*temp;
+	int					len;
+	char				*temp;
+	unsigned int		base_len;
 
 	if (value == 0)
 	{
 		ft_putchar_fd('0', 1);
 		return (1);
 	}
-	len = ft_num_count_base(value, 16);
+	base_len = ft_strlen(base);
+	len = ft_num_count_base(value, base_len);
 	temp = ft_calloc(len + 1, sizeof(char));
 	if (!temp)
 		return (0);
 	while (value > 0 && len > 0)
 	{
-		temp[--len] = base[value % 16];
-		value /= 16;
+		temp[--len] = base[value % base_len];
+		value /= base_len;
 	}
 	ft_putstr_fd(temp, 1);
 	len = ft_strlen(temp);
@@ -55,17 +57,17 @@ int	ft_itoa_base(unsigned long value, char *base)
 	return (len);
 }
 
-int	get_pointer(void *p)
+unsigned long	ft_get_pointer(unsigned long p)
 {
-	int			len;
-	uintptr_t	pnt;
+	unsigned long	len;
+	unsigned long	pnt;
 
 	if (!p)
 	{
 		ft_putstr_fd("(nil)", 1);
 		return (5);
 	}
-	pnt = (uintptr_t)p;
+	pnt = p;
 	ft_putstr_fd("0x", 1);
 	len = ft_itoa_base(pnt, "0123456789abcdef");
 	return (len + 2);

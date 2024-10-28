@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 11:30:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/26 16:04:03 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/10/28 10:09:48 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	get_format(char c, va_list args)
 	else if (c == 'X')
 		length = ft_itoa_base(va_arg(args, unsigned int), "0123456789ABCDEF");
 	else if (c == 'p')
-		length = get_pointer((void *)va_arg(args, void *));
+		length = ft_get_pointer((unsigned long)va_arg(args, void *));
 	return (length);
 }
 
