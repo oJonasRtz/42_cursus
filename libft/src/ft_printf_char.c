@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/29 10:08:31 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/24 16:16:59 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/29 10:05:36 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#include "ft_printf.h"
 
-int	main(void)
+int	ft_get_percentage(void)
 {
-	char	str[13];
+	ft_putchar_fd('%', 1);
+	return (1);
+}
 
-	ft_strlcpy(str, "-2146483648", 13);
-	printf("%s\n", str);
-	return (0);
+int	ft_get_char(char c)
+{
+	ft_putchar_fd(c, 1);
+	return (1);
+}
+
+int	ft_get_string(char *str)
+{
+	if (str == (char *) NULL)
+	{
+		ft_putstr_fd("(null)", 1);
+		return (6);
+	}
+	ft_putstr_fd(str, 1);
+	return (ft_strlen(str));
 }

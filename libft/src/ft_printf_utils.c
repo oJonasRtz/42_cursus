@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/29 10:08:31 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/24 14:24:24 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/29 10:06:06 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#include "ft_printf.h"
 
-int	main(void)
+/*
+	counts the amount of numbers of a int
+*/
+int	ft_num_count(int n)
 {
-	char	str[13];
+	int	cnt;
 
-	ft_strlcpy(str, "-2146483648", 13);
-	printf("%s\n", str);
-	return (0);
+	cnt = 1;
+	if (n == 0)
+		return (cnt);
+	if (n == (-2147483648))
+		return (10);
+	if (n < 0)
+		n = -n;
+	if (n >= 10)
+		cnt += ft_num_count(n / 10);
+	return (cnt);
 }
