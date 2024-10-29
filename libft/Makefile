@@ -6,7 +6,7 @@
 #    By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 09:51:22 by jopereir          #+#    #+#              #
-#    Updated: 2024/10/29 10:09:54 by jopereir         ###   ########.fr        #
+#    Updated: 2024/10/29 10:38:08 by jopereir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ $(NAME): $(OBJS_FILES)
 	ar rcs $(NAME) $(OBJS_FILES)
 
 main:
-	$(CC) $(CFLAGS) main.c -L. -lft -o my_program -g
+	$(CC) $(CFLAGS) main.c -L. -lft -o my_program
 
 mclean:
 	rm -f my_program
