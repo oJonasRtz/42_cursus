@@ -6,7 +6,7 @@
 #    By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 09:51:22 by jopereir          #+#    #+#              #
-#    Updated: 2024/11/01 10:17:12 by jopereir         ###   ########.fr        #
+#    Updated: 2024/11/01 10:31:07 by jopereir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ $(NAME): $(OBJS_FILES)
 	ar rcs $(NAME) $(OBJS_FILES)
 
 clean:
+	@echo "Removing $(OBJS_FILES)"
 	rm -f $(OBJS_FILES)
 
 fclean: clean
@@ -47,5 +48,6 @@ re:	fclean all
 
 main: re
 	$(CC) $(CFLAGS) main.c -L. -lft -o my_program
+	@$(MAKE) clean
 
 .PHONY: all clean fclean re
