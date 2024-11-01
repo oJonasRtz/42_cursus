@@ -6,11 +6,11 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 16:16:59 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/29 10:16:55 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/11/01 10:12:04 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 int	ft_get_percentage(void)
 {

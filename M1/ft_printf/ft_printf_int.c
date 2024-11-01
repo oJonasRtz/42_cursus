@@ -6,11 +6,11 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 14:46:46 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/26 16:05:39 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/11/01 10:11:53 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_num_count_unsigned(unsigned int n)
 {

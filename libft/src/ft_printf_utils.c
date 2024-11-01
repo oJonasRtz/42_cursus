@@ -6,11 +6,11 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 14:24:24 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/29 10:17:07 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/11/01 10:11:48 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 /*
 	counts the amount of numbers of a int

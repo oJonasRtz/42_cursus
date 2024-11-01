@@ -6,11 +6,11 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 11:30:41 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/28 10:09:48 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/11/01 10:11:40 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/ft_printf.h"
+#include "ft_printf.h"
 
 /*
 	Shows the fomat specified and return the amout of characters showed

@@ -6,11 +6,11 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 16:34:18 by jopereir          #+#    #+#             */
-/*   Updated: 2024/10/28 10:17:27 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/11/01 10:11:59 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_num_count_base(unsigned long n, unsigned long base_len)
 {

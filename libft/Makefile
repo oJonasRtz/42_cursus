@@ -6,7 +6,7 @@
 #    By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 09:51:22 by jopereir          #+#    #+#              #
-#    Updated: 2024/10/29 10:38:08 by jopereir         ###   ########.fr        #
+#    Updated: 2024/11/01 10:17:12 by jopereir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,19 +36,16 @@ $(NAME): $(OBJS_FILES)
 	@echo "Creatind lib $(NAME)"
 	ar rcs $(NAME) $(OBJS_FILES)
 
-main:
-	$(CC) $(CFLAGS) main.c -L. -lft -o my_program
-
-mclean:
-	rm -f my_program
-
 clean:
 	rm -f $(OBJS_FILES)
 
-fclean: clean mclean
-	rm -f $(NAME)
+fclean: clean
+	rm -f $(NAME) my_program
 
 
 re:	fclean all
+
+main: re
+	$(CC) $(CFLAGS) main.c -L. -lft -o my_program
 
 .PHONY: all clean fclean re
