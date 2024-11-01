@@ -1,1 +1,7 @@
-Born2beroot
+*.vbox
+*.vdi
+*.vbox-prev
+Snapshots
+Logs
+signature
+

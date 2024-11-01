@@ -6,6 +6,7 @@
 *.a
 
 #Executables
+my_program
 *.out
 
 #Temp
