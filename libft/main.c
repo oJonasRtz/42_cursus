@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/01 12:55:36 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/11/02 11:01:17 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 int	main(void)
 {
-	char	str[1024];
-
-	sprintf(str, "O número é %d\n", 10);
-	printf("%s", str);
+	char	str[3] = {'a', 'b', 'c'};
+	void	*pnt;
+	
+	pnt = ft_memchr(str, 'c', 3);
+	printf("%p\n", pnt);
 	return (0);
 }
