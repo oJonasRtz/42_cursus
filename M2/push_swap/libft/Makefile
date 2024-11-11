@@ -33,21 +33,23 @@ $(SRCS_DIR)/%.o: $(SRCS_DIR)/%.c
 
 #flag r is for replace, c if for create
 $(NAME): $(OBJS_FILES)
-	@echo "Creatind lib $(NAME)"
+	@echo "Creating lib $(NAME)"
 	@ar rcs $(NAME) $(OBJS_FILES)
 
 clean:
-	@echo "Removing $(OBJS_FILES)"
-	rm -f $(OBJS_FILES)
+	@echo "Objects removed."
+	@rm -f $(OBJS_FILES)
 
 fclean: clean
-	rm -f $(NAME) my_program
+	@echo "$(NAME) removed."
+	@rm -f $(NAME) my_program
 
 
 re:	fclean all
 
 main: re
-	$(CC) $(CFLAGS) main.c -L. -lft -o my_program
+	@echo "Compiling main.c"
+	@$(CC) $(CFLAGS) main.c -L. -lft -o my_program
 	@$(MAKE) clean
 
 .PHONY: all clean fclean re
