@@ -20,7 +20,7 @@ SRCS_FILES  = $(wildcard $(SRCS_DIR)/*.c)
 OBJS_FILES = $(SRCS_FILES:.c=.o)
 
 #compile -I. find for the header (.h) in current directory. -g to use valgrind
-CC 		= cc
+CC 		= gcc
 CFLAGS 	= -Wall -Werror -Wextra -I$(HEADER_DIR) -g
 
 #Rules

@@ -6,12 +6,15 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 16:34:18 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/01 10:11:59 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/11/11 10:33:59 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/*
+	return the number of characters the converted number will use
+*/
 int	ft_num_count_base(unsigned long n, unsigned long base_len)
 {
 	int	cnt;
@@ -38,7 +41,7 @@ int	ft_itoa_base(unsigned long value, char *base)
 
 	if (value == 0)
 	{
-		ft_putchar_fd('0', 1);
+		ft_putchar_fd(base[0], 1);
 		return (1);
 	}
 	base_len = ft_strlen(base);
