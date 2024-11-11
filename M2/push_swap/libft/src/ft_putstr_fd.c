@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/05 10:12:11 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/11 12:08:58 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/11 12:39:34 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	main(void)
+/*
+	Writes a string in a file
+*/
+void	ft_putstr_fd(char *s, int fd)
 {
-	printf("%d\n", 10);
-	return (0);
+	int	i;
+
+	i = 0;
+	while (s[i])
+		ft_putchar_fd(s[i++], fd);
 }

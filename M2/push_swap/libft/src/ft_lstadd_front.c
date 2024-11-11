@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/05 10:12:11 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/17 10:30:56 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/17 10:53:53 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	main(void)
+/*
+	add a new node in front a list
+
+	*lst is the list it points to new at the end for when you call lst
+	it starts at new
+*/
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	printf("%d\n", 10);
-	return (0);
+	if (lst && new)
+	{
+		new -> next = *lst;
+		*lst = new;
+	}
 }

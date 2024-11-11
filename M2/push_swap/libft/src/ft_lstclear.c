@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/05 10:12:11 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/17 11:46:03 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/17 11:53:51 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+	delete and free a node and all the sucessors
+*/
 #include "libft.h"
-#include <stdio.h>
 
-int	main(void)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	printf("%d\n", 10);
-	return (0);
+	t_list	*current;
+	t_list	*next;
+
+	if (!lst || !del)
+		return ;
+	current = *lst;
+	while (current)
+	{
+		next = current -> next;
+		del(current -> content);
+		free(current);
+		current = next;
+	}
+	*lst = NULL;
 }

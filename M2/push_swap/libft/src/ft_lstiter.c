@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/05 10:12:11 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/17 11:55:44 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/17 12:00:19 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	main(void)
+/*
+	Aplly function f at each node os the list
+*/
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	printf("%d\n", 10);
-	return (0);
+	t_list	*current;
+	t_list	*next;
+
+	if (!lst || !f)
+		return ;
+	current = lst;
+	while (current)
+	{
+		next = current -> next;
+		f(current -> content);
+		current = next;
+	}
 }

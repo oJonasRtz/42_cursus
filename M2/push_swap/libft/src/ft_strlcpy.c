@@ -1,20 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/05 10:12:11 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/08 12:36:43 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/10 11:09:53 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	main(void)
+/*
+	Copy 'size' bytes from src to dst
+
+	returns the length of src
+*/
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	printf("%d\n", 10);
-	return (0);
+	size_t	i;
+	size_t	length;
+
+	i = 0;
+	length = ft_strlen(src);
+	if (size)
+	{
+		while (i < size - 1 && src[i])
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	return (length);
 }

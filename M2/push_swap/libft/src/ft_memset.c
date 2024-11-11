@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/05 10:12:11 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/05 10:37:41 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/10 10:58:12 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	main(void)
+/*
+	This function fills the first 'n' bytes of the string *s with the char 'c'
+*/
+void	*ft_memset(void *s, int c, size_t n)
 {
-	printf("%d\n", 10);
-	return (0);
+	unsigned char	*pnt;
+
+	pnt = (unsigned char *)s;
+	while (n > 0)
+	{
+		pnt[n - 1] = c;
+		n--;
+	}
+	return (s);
 }

@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/05 10:12:11 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/11 13:11:42 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/15 15:02:12 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	main(void)
+/*
+	Makes a substring
+
+	the substring starts at 'start' to 'len'
+*/
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	printf("%d\n", 10);
-	return (0);
+	size_t		i;
+	size_t		j;
+	char		*substr;
+
+	substr = NULL;
+	substr = (char *)malloc(len + 1);
+	if (!substr)
+		return (NULL);
+	i = start;
+	j = 0;
+	while (i < (size_t)ft_strlen(s) && j < len)
+		substr[j++] = s[i++];
+	substr[j] = '\0';
+	return (substr);
 }

@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/05 10:12:11 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/17 11:11:34 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/17 11:20:36 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+	Returns the last node of the list
+*/
 #include "libft.h"
-#include <stdio.h>
 
-int	main(void)
+t_list	*ft_lstlast(t_list *lst)
 {
-	printf("%d\n", 10);
-	return (0);
+	if (!lst)
+		return (lst);
+	while (lst -> next)
+		lst = lst -> next;
+	return (lst);
 }

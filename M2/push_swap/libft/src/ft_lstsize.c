@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/05 10:12:11 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/17 10:54:24 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/17 11:23:05 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	main(void)
+/*
+	return the amout of nodes in a list
+*/
+int	ft_lstsize(t_list *lst)
 {
-	printf("%d\n", 10);
-	return (0);
+	int	cnt;
+
+	cnt = 0;
+	while (lst)
+	{
+		cnt++;
+		lst = lst -> next;
+	}
+	return (cnt);
 }

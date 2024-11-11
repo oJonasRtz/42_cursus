@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 12:09:27 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/05 10:12:11 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/11 10:41:07 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/23 12:51:33 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	main(void)
+/*
+	Alocates memory
+
+	and fill all the slots with '\0'
+
+	h = ft_calloc(10, sizeof(char));
+*/
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	printf("%d\n", 10);
-	return (0);
+	size_t	_size;
+	void	*pnt;
+
+	_size = size * nmemb;
+	pnt = malloc(_size);
+	if (!pnt)
+		return (NULL);
+	ft_bzero(pnt, _size);
+	return (pnt);
 }
