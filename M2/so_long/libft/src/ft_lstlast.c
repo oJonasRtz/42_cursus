@@ -1,40 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 12:14:08 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/12 13:09:48 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/17 11:11:34 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/17 11:20:36 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+/*
+	Returns the last node of the list
+*/
+#include "libft.h"
 
-int	*stack_init(char *s)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int		i;
-	int		*n;
-	char	**str;
-	int		s_size;
-
-	str = ft_split(s, ' ');
-	s_size = 0;
-	while (str[s_size])
-		s_size++;
-	n = ft_calloc(s_size + 1, sizeof(int));
-	if (!n)
-		return (NULL);
-	i = 0;
-	while (str[i])
-	{
-		n[i] = ft_atoi(str[i]);
-		i++;
-	}
-	i = 0;
-	while (str[i])
-		free(str[i++]);
-	free(str);
-	return (n);
+	if (!lst)
+		return (lst);
+	while (lst -> next)
+		lst = lst -> next;
+	return (lst);
 }

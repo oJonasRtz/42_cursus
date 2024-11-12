@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 12:14:08 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/12 13:09:48 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/11 13:11:54 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/14 13:06:00 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	*stack_init(char *s)
+/*
+	Aply a function to each charactere of the string
+*/
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int		i;
-	int		*n;
-	char	**str;
-	int		s_size;
+	unsigned int	i;
 
-	str = ft_split(s, ' ');
-	s_size = 0;
-	while (str[s_size])
-		s_size++;
-	n = ft_calloc(s_size + 1, sizeof(int));
-	if (!n)
-		return (NULL);
 	i = 0;
-	while (str[i])
+	while (s[i])
 	{
-		n[i] = ft_atoi(str[i]);
+		f(i, &s[i]);
 		i++;
 	}
-	i = 0;
-	while (str[i])
-		free(str[i++]);
-	free(str);
-	return (n);
 }

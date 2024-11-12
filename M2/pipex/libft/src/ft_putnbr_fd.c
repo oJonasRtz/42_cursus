@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 12:14:08 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/12 13:09:48 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/11 12:08:55 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/15 10:19:06 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	*stack_init(char *s)
+/*
+	Writes a number in the file
+*/
+void	ft_putnbr_fd(int n, int fd)
 {
-	int		i;
-	int		*n;
-	char	**str;
-	int		s_size;
-
-	str = ft_split(s, ' ');
-	s_size = 0;
-	while (str[s_size])
-		s_size++;
-	n = ft_calloc(s_size + 1, sizeof(int));
-	if (!n)
-		return (NULL);
-	i = 0;
-	while (str[i])
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else
 	{
-		n[i] = ft_atoi(str[i]);
-		i++;
+		if (n < 0)
+		{
+			ft_putchar_fd('-', fd);
+			n = -n;
+		}
+		if (n >= 10)
+			ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd(n % 10 + '0', fd);
 	}
-	i = 0;
-	while (str[i])
-		free(str[i++]);
-	free(str);
-	return (n);
 }

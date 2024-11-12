@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 12:14:08 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/12 13:09:48 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/08 12:36:31 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/14 15:10:06 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	*stack_init(char *s)
+/*
+	This function returns a pointer to the fist occurence of the char 'c'
+	otherwise returns NULL
+
+	the last 'if' is for the '\0' terminator
+*/
+char	*ft_strchr(const char *s, int c)
 {
-	int		i;
-	int		*n;
-	char	**str;
-	int		s_size;
-
-	str = ft_split(s, ' ');
-	s_size = 0;
-	while (str[s_size])
-		s_size++;
-	n = ft_calloc(s_size + 1, sizeof(int));
-	if (!n)
-		return (NULL);
-	i = 0;
-	while (str[i])
+	while (*s)
 	{
-		n[i] = ft_atoi(str[i]);
-		i++;
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
 	}
-	i = 0;
-	while (str[i])
-		free(str[i++]);
-	free(str);
-	return (n);
+	if (*s == (char)c)
+		return ((char *)s);
+	return (NULL);
 }

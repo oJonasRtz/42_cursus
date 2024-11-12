@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 12:14:08 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/12 13:09:48 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/17 11:55:44 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/17 12:00:19 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	*stack_init(char *s)
+/*
+	Aplly function f at each node os the list
+*/
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	int		i;
-	int		*n;
-	char	**str;
-	int		s_size;
+	t_list	*current;
+	t_list	*next;
 
-	str = ft_split(s, ' ');
-	s_size = 0;
-	while (str[s_size])
-		s_size++;
-	n = ft_calloc(s_size + 1, sizeof(int));
-	if (!n)
-		return (NULL);
-	i = 0;
-	while (str[i])
+	if (!lst || !f)
+		return ;
+	current = lst;
+	while (current)
 	{
-		n[i] = ft_atoi(str[i]);
-		i++;
+		next = current -> next;
+		f(current -> content);
+		current = next;
 	}
-	i = 0;
-	while (str[i])
-		free(str[i++]);
-	free(str);
-	return (n);
 }

@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 12:14:08 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/12 13:09:48 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/15 16:19:55 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/17 12:47:04 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+/*
+	add a note in the last position of a list
 
-int	*stack_init(char *s)
+	if node is empty add new as the first node
+*/
+#include "libft.h"
+
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int		i;
-	int		*n;
-	char	**str;
-	int		s_size;
+	t_list	*last_pos;
 
-	str = ft_split(s, ' ');
-	s_size = 0;
-	while (str[s_size])
-		s_size++;
-	n = ft_calloc(s_size + 1, sizeof(int));
-	if (!n)
-		return (NULL);
-	i = 0;
-	while (str[i])
+	if (!lst || !new)
+		return ;
+	if (!(*lst))
+		*lst = new;
+	else
 	{
-		n[i] = ft_atoi(str[i]);
-		i++;
+		last_pos = ft_lstlast(*lst);
+		last_pos -> next = new;
 	}
-	i = 0;
-	while (str[i])
-		free(str[i++]);
-	free(str);
-	return (n);
 }

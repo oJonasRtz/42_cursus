@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 12:14:08 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/12 13:09:48 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/10 12:14:35 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/14 13:07:09 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	*stack_init(char *s)
+/*
+	copy n bytes os src to dest
+
+	it can be used by any type of variable
+*/
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int		i;
-	int		*n;
-	char	**str;
-	int		s_size;
+	size_t	i;
 
-	str = ft_split(s, ' ');
-	s_size = 0;
-	while (str[s_size])
-		s_size++;
-	n = ft_calloc(s_size + 1, sizeof(int));
-	if (!n)
-		return (NULL);
 	i = 0;
-	while (str[i])
+	while (i < n)
 	{
-		n[i] = ft_atoi(str[i]);
+		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
 		i++;
 	}
-	i = 0;
-	while (str[i])
-		free(str[i++]);
-	free(str);
-	return (n);
+	return (dest);
 }

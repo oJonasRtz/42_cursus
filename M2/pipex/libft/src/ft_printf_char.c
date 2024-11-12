@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_printf_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 12:14:08 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/12 13:09:48 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/24 16:16:59 by jopereir          #+#    #+#             */
+/*   Updated: 2024/11/01 10:12:04 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-int	*stack_init(char *s)
+int	ft_get_percentage(void)
 {
-	int		i;
-	int		*n;
-	char	**str;
-	int		s_size;
+	ft_putchar_fd('%', 1);
+	return (1);
+}
 
-	str = ft_split(s, ' ');
-	s_size = 0;
-	while (str[s_size])
-		s_size++;
-	n = ft_calloc(s_size + 1, sizeof(int));
-	if (!n)
-		return (NULL);
-	i = 0;
-	while (str[i])
+int	ft_get_char(char c)
+{
+	ft_putchar_fd(c, 1);
+	return (1);
+}
+
+int	ft_get_string(char *str)
+{
+	if (str == (char *) NULL)
 	{
-		n[i] = ft_atoi(str[i]);
-		i++;
+		ft_putstr_fd("(null)", 1);
+		return (6);
 	}
-	i = 0;
-	while (str[i])
-		free(str[i++]);
-	free(str);
-	return (n);
+	ft_putstr_fd(str, 1);
+	return (ft_strlen(str));
 }

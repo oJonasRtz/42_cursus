@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 12:14:08 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/12 13:09:48 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/05 10:32:21 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/10 11:11:04 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	*stack_init(char *s)
+/*
+	Takes the length of a string
+
+	doesn't include the NULL terminator
+*/
+int	ft_strlen(const char *s)
 {
-	int		i;
-	int		*n;
-	char	**str;
-	int		s_size;
+	int	i;
 
-	str = ft_split(s, ' ');
-	s_size = 0;
-	while (str[s_size])
-		s_size++;
-	n = ft_calloc(s_size + 1, sizeof(int));
-	if (!n)
-		return (NULL);
 	i = 0;
-	while (str[i])
-	{
-		n[i] = ft_atoi(str[i]);
+	while (s[i])
 		i++;
-	}
-	i = 0;
-	while (str[i])
-		free(str[i++]);
-	free(str);
-	return (n);
+	return (i);
+}
+
+/*
+	strlen recursive
+*/
+int	ft_strrlen(const char *s)
+{
+	if (*s == '\0')
+		return (0);
+	return (1 + ft_strrlen(s + 1));
 }

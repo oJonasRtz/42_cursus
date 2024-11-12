@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 12:14:08 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/12 13:09:48 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/11 13:11:42 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/15 15:02:12 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	*stack_init(char *s)
+/*
+	Makes a substring
+
+	the substring starts at 'start' to 'len'
+*/
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		i;
-	int		*n;
-	char	**str;
-	int		s_size;
+	size_t		i;
+	size_t		j;
+	char		*substr;
 
-	str = ft_split(s, ' ');
-	s_size = 0;
-	while (str[s_size])
-		s_size++;
-	n = ft_calloc(s_size + 1, sizeof(int));
-	if (!n)
+	substr = NULL;
+	substr = (char *)malloc(len + 1);
+	if (!substr)
 		return (NULL);
-	i = 0;
-	while (str[i])
-	{
-		n[i] = ft_atoi(str[i]);
-		i++;
-	}
-	i = 0;
-	while (str[i])
-		free(str[i++]);
-	free(str);
-	return (n);
+	i = start;
+	j = 0;
+	while (i < (size_t)ft_strlen(s) && j < len)
+		substr[j++] = s[i++];
+	substr[j] = '\0';
+	return (substr);
 }

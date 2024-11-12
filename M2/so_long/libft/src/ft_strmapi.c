@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 12:14:08 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/12 13:09:48 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/11 13:11:48 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/15 10:51:29 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	*stack_init(char *s)
+/*
+	Aply function 'f' for each character of the string
+
+	returns
+		a resulting string of the function
+*/
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int		i;
-	int		*n;
-	char	**str;
-	int		s_size;
+	unsigned int		i;
+	char				*str;
 
-	str = ft_split(s, ' ');
-	s_size = 0;
-	while (str[s_size])
-		s_size++;
-	n = ft_calloc(s_size + 1, sizeof(int));
-	if (!n)
+	if (!s || !f)
+		return (NULL);
+	str = NULL;
+	str = malloc(ft_strlen(s) + 1);
+	if (!str)
 		return (NULL);
 	i = 0;
-	while (str[i])
+	while (s[i])
 	{
-		n[i] = ft_atoi(str[i]);
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	i = 0;
-	while (str[i])
-		free(str[i++]);
-	free(str);
-	return (n);
+	str[i] = '\0';
+	return (str);
 }

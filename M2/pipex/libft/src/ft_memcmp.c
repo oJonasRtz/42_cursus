@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 12:14:08 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/12 13:09:48 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/10 12:14:29 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/14 13:44:23 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	*stack_init(char *s)
+/*
+	Compares if n bytes of the memory are equal
+
+	returns 0 if there equal
+	returns the diference between then if there's a diference
+*/
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int		i;
-	int		*n;
-	char	**str;
-	int		s_size;
+	size_t			i;
+	unsigned char	*pnt1;
+	unsigned char	*pnt2;
 
-	str = ft_split(s, ' ');
-	s_size = 0;
-	while (str[s_size])
-		s_size++;
-	n = ft_calloc(s_size + 1, sizeof(int));
-	if (!n)
-		return (NULL);
 	i = 0;
-	while (str[i])
+	pnt1 = (unsigned char *)s1;
+	pnt2 = (unsigned char *)s2;
+	while (i < n)
 	{
-		n[i] = ft_atoi(str[i]);
+		if (pnt1[i] != pnt2[i])
+			return (pnt1[i] - pnt2[i]);
 		i++;
 	}
-	i = 0;
-	while (str[i])
-		free(str[i++]);
-	free(str);
-	return (n);
+	return (0);
 }

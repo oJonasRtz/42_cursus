@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 12:14:08 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/12 13:09:48 by jopereir         ###   ########.fr       */
+/*   Created: 2024/10/08 12:36:51 by jopereir          #+#    #+#             */
+/*   Updated: 2024/10/17 14:54:58 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	*stack_init(char *s)
+/*
+	Returns the last occurence of 'c' in 's'
+*/
+char	*ft_strrchr(const char *s, int c)
 {
-	int		i;
-	int		*n;
-	char	**str;
-	int		s_size;
+	int	i;
 
-	str = ft_split(s, ' ');
-	s_size = 0;
-	while (str[s_size])
-		s_size++;
-	n = ft_calloc(s_size + 1, sizeof(int));
-	if (!n)
-		return (NULL);
-	i = 0;
-	while (str[i])
+	i = ft_strlen(s) + 1;
+	while (i > 0)
 	{
-		n[i] = ft_atoi(str[i]);
-		i++;
+		if (s[i - 1] == (char)c)
+			return ((char *)&s[i - 1]);
+		i--;
 	}
-	i = 0;
-	while (str[i])
-		free(str[i++]);
-	free(str);
-	return (n);
+	return (NULL);
 }
