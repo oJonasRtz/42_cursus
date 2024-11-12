@@ -6,14 +6,14 @@
 #    By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 09:51:22 by jopereir          #+#    #+#              #
-#    Updated: 2024/11/05 10:11:32 by jopereir         ###   ########.fr        #
+#    Updated: 2024/11/12 10:54:40 by jopereir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 #Directories
 SRCS_DIR = src
-HEADER_DIR = include
+HEADER_DIR = ../include
 
 #Files
 SRCS_FILES  = $(wildcard $(SRCS_DIR)/*.c)
