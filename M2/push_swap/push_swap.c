@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:42:42 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/12 15:19:54 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/11/13 10:29:46 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,10 @@
 */
 int	get_size(int *a, int *b, int *size_a, int *size_b)
 {
-	*size_a = 0;
 	while (a != NULL && a[*size_a])
 		(*size_a)++;
-	*size_b = 0;
 	while (b != NULL && b[*size_b])
-		(size_b)++;
+		(*size_b)++;
 	if (*size_b > *size_a)
 		return (*size_b);
 	return (*size_a);
@@ -35,20 +33,20 @@ void	draw_grid(int	*n1, int *n2)
 	int	size_b;
 	int	max_size;
 
+	size_a = 0;
+	size_b = 0;
 	max_size = get_size(n1, n2, &size_a, &size_b);
-	i = max_size - 1;
-	while (i >= 0)
+	i = 0;
+	while (i < max_size)
 	{
 		if (i < size_a)
-			ft_printf("%d ", n1[i]);
-		else
-			ft_printf("  ");
-		if (i < size_b)
-			ft_printf("%d", n2[i]);
+			ft_printf("%d", n1[i]);
 		else
 			ft_printf(" ");
+		if (i < size_b)
+			ft_printf(" %d", n2[i]);
 		ft_printf("\n");
-		i--;
+		i++;
 	}
 	ft_printf("- -\na b\n");
 }
