@@ -6,17 +6,19 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:25:28 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/13 13:25:33 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/11/13 13:26:21 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 int	*var_init(char *s)
 {
 	int		i;
 	int		*n;
 	char	**str;
 	int		s_size;
+
 	str = ft_split(s, ' ');
 	s_size = 0;
 	while (str[s_size])
