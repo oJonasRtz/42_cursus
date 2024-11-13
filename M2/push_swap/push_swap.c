@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:42:42 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/13 12:51:58 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/11/13 13:02:47 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,18 @@ void	ft_switch_format(char *s, int *a, int *b)
 		ft_sort(a);
 	else if (strncmp(s, "sb", ft_strlen(s)) == 0)
 		ft_sort(b);
+	else if (strncmp(s, "ss", ft_strlen(s)) == 0)
+	{
+		ft_sort(a);
+		ft_sort(b);
+	}
 }
 
 int	main(int argc, char *argv[])
 {
 	int		*a;
 	int		*b;
+	int		i;
 
 	a = ft_calloc(5 + 1, sizeof(int));
 	b = ft_calloc(5 + 1, sizeof(int));
@@ -73,8 +79,10 @@ int	main(int argc, char *argv[])
 	b[0] = 5;
 	b[1] = 3;
 	b[2] = 6;
+	i = 1;
 	if (argc > 1)
-		ft_switch_format(argv[1], a, b);
+		while (argv[i])
+			ft_switch_format(argv[i++], a, b);
 	draw_grid(a, b);
 	free(a);
 	free(b);
