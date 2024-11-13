@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:42:42 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/13 10:29:46 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/11/13 12:51:58 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,22 +51,31 @@ void	draw_grid(int	*n1, int *n2)
 	ft_printf("- -\na b\n");
 }
 
+void	ft_switch_format(char *s, int *a, int *b)
+{
+	if (strncmp(s, "sa", ft_strlen(s)) == 0)
+		ft_sort(a);
+	else if (strncmp(s, "sb", ft_strlen(s)) == 0)
+		ft_sort(b);
+}
+
 int	main(int argc, char *argv[])
 {
 	int		*a;
 	int		*b;
 
-	a = NULL;
-	b = NULL;
+	a = ft_calloc(5 + 1, sizeof(int));
+	b = ft_calloc(5 + 1, sizeof(int));
+	a[0] = 2;
+	a[1] = 1;
+	a[2] = 7;
+	a[3] = 3;
+	b[0] = 5;
+	b[1] = 3;
+	b[2] = 6;
 	if (argc > 1)
-	{
-		a = stack_init(argv[1]);
-		if (argc > 2)
-			b = stack_init(argv[2]);
-		draw_grid(a, b);
-	}
-	else
-		ft_printf("Too few arguments.");
+		ft_switch_format(argv[1], a, b);
+	draw_grid(a, b);
 	free(a);
 	free(b);
 	return (0);

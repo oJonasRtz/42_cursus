@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:49:58 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/12 13:09:55 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/11/13 11:28:28 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 # include "libft.h"
 
-int	*stack_init(char *s);
+void	ft_sort(int *n);
 
 #endif
