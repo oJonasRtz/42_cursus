@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:42:42 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/18 15:04:43 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/11/18 15:08:37 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,14 +86,9 @@ int	main(int argc, char *argv[])
 		a = stack_init(argv);
 	b = ft_calloc(a_size, sizeof(int));
 	draw_grid(a, b);
-	while (1)
-	{
-		ft_printf ("\nOperação: ");
-		read(0, buffer, 255);
-		if (ft_strncmp(buffer, "exit", ft_strlen(buffer)) == 0)
-			break ;
-		ft_switch_format(buffer, a, b);
-	}
+	ft_printf ("\nOperação: ");
+	read(0, buffer, 2);
+	ft_switch_format(buffer, a, b);
 	ft_double_free(&a, &b);
 	return (0);
 }
