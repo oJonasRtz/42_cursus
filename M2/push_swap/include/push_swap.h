@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:49:58 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/13 11:28:28 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/11/18 14:57:04 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 
 # include "libft.h"
 
-void	ft_sort(int *n);
+void	ft_swap(int *n);
+void	ft_push(int **src, int **dest);
+int		*stack_init(char **s);
+int		isalldigit(char *s);
+int		ft_arraylen(int *a);
+int		*arraydown(int *n);
+int		*arrayup(int *n);
+void	ft_double_free(int **a, int **b);
 
 #endif

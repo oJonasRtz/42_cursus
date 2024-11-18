@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 10:45:28 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/13 11:50:31 by jopereir         ###   ########.fr       */
+/*   Created: 2024/11/18 14:02:13 by jopereir          #+#    #+#             */
+/*   Updated: 2024/11/18 15:03:22 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 	get the amount of index of an array
 */
-static int	ft_arraylen(int *a)
+int	ft_arraylen(int *a)
 {
 	int	i;
 
@@ -25,16 +25,42 @@ static int	ft_arraylen(int *a)
 	return (i);
 }
 
-void	ft_sort(int *n)
+int	*arrayup(int *n)
 {
-	int	temp;
+	int	*stack;
+	int	i;
+	int	j;
 
-	if (ft_arraylen(n) <= 1)
-		return ;
-	if (n[1] < n[0])
-	{
-		temp = n[0];
-		n[0] = n[1];
-		n[1] = temp;
-	}	
+	stack = malloc((ft_arraylen(n) - 1) * sizeof(int));
+	if (!stack)
+		return (NULL);
+	i = 1;
+	j = 0;
+	while (n[i])
+		stack[j++] = n[i++];
+	free(n);
+	return (stack);
+}
+
+int	*arraydown(int *n)
+{
+	int	*stack;
+	int	i;
+	int	j;
+
+	stack = malloc((ft_arraylen(n) + 1) * sizeof(int));
+	if (!stack)
+		return (NULL);
+	i = 0;
+	j = 1;
+	while (n[i])
+		stack[j++] = n[i++];
+	free(n);
+	return (stack);
+}
+
+void	ft_double_free(int **a, int **b)
+{
+	free(*a);
+	free(*b);
 }

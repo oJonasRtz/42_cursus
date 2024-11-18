@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init.c                                          :+:      :+:    :+:   */
+/*   isalldigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 13:25:28 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/18 13:54:53 by jopereir         ###   ########.fr       */
+/*   Created: 2024/11/18 13:05:46 by jopereir          #+#    #+#             */
+/*   Updated: 2024/11/18 13:18:54 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*stack_init(char **s)
+int	isalldigit(char *s)
 {
-	int	*stack;
 	int	i;
-	int	j;
 
-	i = 1;
+	i = 0;
 	while (s[i])
+	{
+		if (!ft_isdigit(s[i]) && !(s[i] == ' '))
+			return (0);
 		i++;
-	stack = ft_calloc(i, sizeof(int));
-	if (!stack)
-		return (NULL);
-	i = 1;
-	j = 0;
-	while (s[i])
-		stack[j++] = ft_atoi(s[i++]);
-	return (stack);
+	}
+	return (1);
 }

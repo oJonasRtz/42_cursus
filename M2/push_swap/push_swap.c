@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:42:42 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/13 13:02:47 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/11/18 15:04:43 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,38 +53,47 @@ void	draw_grid(int	*n1, int *n2)
 
 void	ft_switch_format(char *s, int *a, int *b)
 {
-	if (strncmp(s, "sa", ft_strlen(s)) == 0)
-		ft_sort(a);
-	else if (strncmp(s, "sb", ft_strlen(s)) == 0)
-		ft_sort(b);
-	else if (strncmp(s, "ss", ft_strlen(s)) == 0)
+	if (ft_strncmp(s, "sa", ft_strlen(s)) == 0)
+		ft_swap(a);
+	else if (ft_strncmp(s, "sb", ft_strlen(s)) == 0)
+		ft_swap(b);
+	else if (ft_strncmp(s, "ss", ft_strlen(s)) == 0)
 	{
-		ft_sort(a);
-		ft_sort(b);
+		ft_swap(a);
+		ft_swap(b);
 	}
+	else if (ft_strncmp(s, "pa", ft_strlen(s)) == 0)
+		ft_push(&b, &a);
+	else if (ft_strncmp(s, "pb", ft_strlen(s)) == 0)
+		ft_push(&a, &b);
+	draw_grid(a, b);
 }
 
 int	main(int argc, char *argv[])
 {
 	int		*a;
 	int		*b;
-	int		i;
+	int		a_size;
+	char	buffer[2];
 
-	a = ft_calloc(5 + 1, sizeof(int));
-	b = ft_calloc(5 + 1, sizeof(int));
-	a[0] = 2;
-	a[1] = 1;
-	a[2] = 7;
-	a[3] = 3;
-	b[0] = 5;
-	b[1] = 3;
-	b[2] = 6;
-	i = 1;
-	if (argc > 1)
-		while (argv[i])
-			ft_switch_format(argv[i++], a, b);
+	a_size = 0;
+	if (argc < 2)
+	{
+		ft_printf("ERROR.\n");
+		exit (1);
+	}
+	else
+		a = stack_init(argv);
+	b = ft_calloc(a_size, sizeof(int));
 	draw_grid(a, b);
-	free(a);
-	free(b);
+	while (1)
+	{
+		ft_printf ("\nOperação: ");
+		read(0, buffer, 255);
+		if (ft_strncmp(buffer, "exit", ft_strlen(buffer)) == 0)
+			break ;
+		ft_switch_format(buffer, a, b);
+	}
+	ft_double_free(&a, &b);
 	return (0);
 }
