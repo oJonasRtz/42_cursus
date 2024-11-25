@@ -6,7 +6,7 @@
 /*   By: jopereir <jopereir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:42:42 by jopereir          #+#    #+#             */
-/*   Updated: 2024/11/18 15:17:07 by jopereir         ###   ########.fr       */
+/*   Updated: 2024/11/25 09:58:55 by jopereir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,6 @@ int	main(int argc, char *argv[])
 	ft_printf ("\nOperação: ");
 	read(0, buffer, 2);
 	ft_switch_format(buffer, a, b);
-	ft_double_free(&a, &b);
+	ft_double_free(a, b);
 	return (0);
 }
